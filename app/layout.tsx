@@ -1,24 +1,27 @@
 import NavMenu from './_components/NavMenu'
 import './globals.css'
-import { Assistant } from 'next/font/google'
+import { Assistant, Archivo } from 'next/font/google'
 
 const assistant = Assistant({ subsets: ['latin'] })
+const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo' })
 
 export const metadata = {
-  title: 'MSM TECHNOLOGIES',
-  description: 'Meta description bro',
+  title: 'Web Development Agency for Your Business | msmtech_',
+  description: 'msmtech_ is a leading web development agency offering custom web solutions to businesses. From website essentials to premium ecommerce suites and enterprise web app solutions, we deliver tailored digital experiences. Contact us today for a free consultation.',
 }
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
+}:{
+  children: React.ReactNode,
 }) {
   return (
     <html lang="en">
-      <body className={assistant.className}>
+      <body className={`${assistant.className} ${archivo.variable}`}>
         <NavMenu />
-        {children}
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   )
