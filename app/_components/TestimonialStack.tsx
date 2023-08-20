@@ -15,10 +15,10 @@ export default function TestimonialStack() {
                     </div>
                     <div className="mt-16 lg:mt-20 text-center">
                         <Text variant="h6">Linda Z.</Text>
-                        <div className="mt-1">
+                        {/* <div className="mt-1">
                             <Text variant="body2">Owner of Ginseng Massage,</Text>
                             <Text variant="body2">Founder of Tuina Association of Canada</Text>
-                        </div>
+                        </div> */}
                     </div>
                 </ContentContainer>
             </div>

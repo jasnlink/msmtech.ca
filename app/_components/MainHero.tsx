@@ -1,6 +1,7 @@
 import Button from "@/src/components/Button";
 import Image from "next/image";
 import Link from "next/link";
+import mainScene from "@/public/main-scene.png"
 
 export default function MainHero() {
     return (
@@ -17,9 +18,7 @@ export default function MainHero() {
                 <div className="fixed top-72 md:top-1/3 w-11/12 md:w-3/4 left-1/2 -translate-x-1/2 lg:mt-0 lg:left-0 lg:translate-x-0 lg:w-full lg:relative lg:top-0 container flex items-center justify-center">
                     <Image
                         priority
-                        src="/main-scene.png"
-                        width={1200}
-                        height={924}
+                        src={mainScene}
                         alt="image"
                         className="w-full h-auto object-contain rounded-lg"
                     />
