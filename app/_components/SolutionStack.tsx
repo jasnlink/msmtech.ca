@@ -24,7 +24,7 @@ export default function SolutionStack() {
             content: [
                 `Get a homepage and 2-3 custom content pages designed with simple code-based templates. This package is perfect for a basic business showcase, including fundamental communication tools and a straightforward blog.`,
             ],
-            budget: `CAD $3-7k`,
+            budget: `CAD $1-7k`,
             time: `1 month`,
             url: `/solutions/website-essentials`,
         },
@@ -35,7 +35,7 @@ export default function SolutionStack() {
             content: [
                 `A website and a fully-fledged online store for both digital and physical products, complete with invoicing and logistics. Suitable for businesses aiming to sell their own digital and physical products and services either locally or internationally.`,
             ],
-            budget: `CAD $5-10k`,
+            budget: `CAD $2-10k`,
             time: `1-2 months`,
             url: `/solutions/ecommerce-suite`,
         },
@@ -46,7 +46,7 @@ export default function SolutionStack() {
             content: [
                 `A comprehensive and bespoke web application developed to power your business or SaaS platform. This solution provides custom-built modules, tailored functionalities, and seamless integrations, all designed to optimize and streamline your specific business operations.`,
             ],
-            budget: `CAD $10-25k`,
+            budget: `CAD $5-25k`,
             time: `2-4 months`,
             url: `/solutions/enterprise-web-app`,
         }

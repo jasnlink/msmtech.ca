@@ -66,7 +66,7 @@ export default function Page({
                 {
                     id: useId(),
                     type: `paragraph`,
-                    data: `Our Website Essentials service is a cost-effective, time-efficient solution to kickstart your online journey. With a budget of CAD $4-7k and a turnaround time of approximately one month, you can have a professional, user-friendly website up and running.`
+                    data: `Our Website Essentials service is a cost-effective, time-efficient solution to kickstart your online journey. With a budget of CAD $1-7k and a turnaround time of approximately one month, you can have a professional, user-friendly website up and running.`
                 }
             ]
         },
@@ -98,7 +98,7 @@ export default function Page({
                 {
                     id: useId(),
                     type: `paragraph`,
-                    data: `Experience the power of online selling with our Premium Ecommerce Suite. With a budget of CAD $12-18k and a timeframe of 1-2 months, you can establish a professional and high-performing ecommerce presence. Contact us today to learn more about our Premium Ecommerce Suite and start maximizing your online sales potential.`
+                    data: `Experience the power of online selling with our Premium Ecommerce Suite. With a budget of CAD $2-10k and a timeframe of 1-2 months, you can establish a professional and high-performing ecommerce presence. Contact us today to learn more about our Premium Ecommerce Suite and start maximizing your online sales potential.`
                 }
             ]
         },
@@ -130,7 +130,7 @@ export default function Page({
                 {
                     id: useId(),
                     type: `paragraph`,
-                    data: `Experience the power of customization, integration, and scalability with our Enterprise Web App Solution. With a budget of CAD $20-50k and a timeframe of 2-4 months, you can elevate your online presence and streamline your business operations. Contact us today to learn more about our Enterprise Web App Solution and embark on a digital transformation journey.`
+                    data: `Experience the power of customization, integration, and scalability with our Enterprise Web App Solution. With a budget of CAD $5-25k and a timeframe of 2-4 months, you can elevate your online presence and streamline your business operations. Contact us today to learn more about our Enterprise Web App Solution and embark on a digital transformation journey.`
                 }
             ]
         },

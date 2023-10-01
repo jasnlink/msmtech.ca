@@ -3,6 +3,7 @@ import './globals.css'
 import { Assistant, Archivo } from 'next/font/google'
 
 import GoogleAnalytics from './_components/GoogleAnalytics'
+import Footer from './_components/Footer'
 
 const assistant = Assistant({ subsets: ['latin'] })
 const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo' })
@@ -24,6 +25,7 @@ export default function RootLayout({
                 <main>
                     {children}
                 </main>
+                <Footer />
             </body>
             <GoogleAnalytics
                 measurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
