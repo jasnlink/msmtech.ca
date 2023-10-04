@@ -22,14 +22,14 @@ export default function Footer() {
             url: `/contact`,
             children: []
         },
-        // {
-        //     id: `2`,
-        //     featuredImage: null,
-        //     title: `Blog`,
-        //     description: null,
-        //     url: `/blog`,
-        //     children: []
-        // }
+        {
+            id: `2`,
+            featuredImage: null,
+            title: `Blog`,
+            description: null,
+            url: `/blog`,
+            children: []
+        }
     ]
 
     const footerNavigationItems2: Array<NavigationItem> = [

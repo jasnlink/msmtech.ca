@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-type PaddingVariants = 'default' | 'lg' | 'sm'
+type PaddingVariants = 'default' | 'lg' | 'sm' | 'none'
 
 interface ContentContainerProps {
     p?: PaddingVariants;
@@ -14,6 +14,7 @@ export default function ContentContainer({p=`default`, children}:PropsWithChildr
         default: `px-6 lg:px-10 pt-8 pb-8`,
         lg: `px-12 md:px-20 pt-24 pb-16`,
         sm: `p-4`,
+        none: `p-0`
     }
 
     return (

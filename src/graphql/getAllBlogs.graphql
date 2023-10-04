@@ -1,0 +1,20 @@
+query getAllBlogs {
+    blogsCollection(locale: "en", order: order_ASC) {
+        items {
+            sys {
+                id
+            }
+            handle
+            title
+            description
+            order
+            seoTitle
+            seoDescription
+            featuredMedia {
+                url
+                title
+                contentType
+            }
+        }
+    }
+}
