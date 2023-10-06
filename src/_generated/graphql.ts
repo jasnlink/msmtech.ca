@@ -1333,29 +1333,175 @@ export type CfBlogsNestedFilter = {
   title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type GetAllBlogsCollectionLinkedFromFieldsFragment = { __typename?: 'BlogPosts', handle?: string | null, title?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null };
+
+export type GetAllBlogsCollectionQueryFieldsFragment = { __typename?: 'Blogs', handle?: string | null, title?: string | null, description?: string | null, order?: number | null, seoTitle?: string | null, seoDescription?: string | null, sys: { __typename?: 'Sys', id: string }, featuredMedia?: { __typename?: 'Asset', url?: string | null, title?: string | null, contentType?: string | null } | null };
+
 export type GetAllBlogsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllBlogsQuery = { __typename?: 'Query', blogsCollection?: { __typename?: 'BlogsCollection', items: Array<{ __typename?: 'Blogs', handle?: string | null, title?: string | null, description?: string | null, order?: number | null, seoTitle?: string | null, seoDescription?: string | null, sys: { __typename?: 'Sys', id: string }, featuredMedia?: { __typename?: 'Asset', url?: string | null, title?: string | null, contentType?: string | null } | null } | null> } | null };
+export type GetAllBlogsQuery = { __typename?: 'Query', blogsCollection?: { __typename?: 'BlogsCollection', items: Array<{ __typename?: 'Blogs', handle?: string | null, title?: string | null, description?: string | null, order?: number | null, seoTitle?: string | null, seoDescription?: string | null, linkedFrom?: { __typename?: 'BlogsLinkingCollections', blogPostsCollection?: { __typename?: 'BlogPostsCollection', total: number, items: Array<{ __typename?: 'BlogPosts', handle?: string | null, title?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null } | null, sys: { __typename?: 'Sys', id: string }, featuredMedia?: { __typename?: 'Asset', url?: string | null, title?: string | null, contentType?: string | null } | null } | null> } | null };
+
+export type BlogPostFieldsFragment = { __typename?: 'BlogPosts', title?: string | null, tags?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, content?: { __typename?: 'BlogPostsContent', json: any, links: { __typename?: 'BlogPostsContentLinks', assets: { __typename?: 'BlogPostsContentAssets', block: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null, authorsCollection?: { __typename?: 'BlogPostsAuthorsCollection', items: Array<{ __typename?: 'Authors', name?: string | null, bio?: string | null, sys: { __typename?: 'Sys', id: string }, profileImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null, blog?: { __typename?: 'Blogs', title?: string | null, handle?: string | null, sys: { __typename?: 'Sys', id: string } } | null };
+
+export type GetBlogPostByHandleQueryVariables = Exact<{
+  blogHandle: Scalars['String']['input'];
+  postHandle: Scalars['String']['input'];
+}>;
 
 
-export const GetAllBlogsDocument = gql`
-    query getAllBlogs {
-  blogsCollection(locale: "en", order: order_ASC) {
+export type GetBlogPostByHandleQuery = { __typename?: 'Query', blogPostsCollection?: { __typename?: 'BlogPostsCollection', items: Array<{ __typename?: 'BlogPosts', title?: string | null, tags?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, content?: { __typename?: 'BlogPostsContent', json: any, links: { __typename?: 'BlogPostsContentLinks', assets: { __typename?: 'BlogPostsContentAssets', block: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null, authorsCollection?: { __typename?: 'BlogPostsAuthorsCollection', items: Array<{ __typename?: 'Authors', name?: string | null, bio?: string | null, sys: { __typename?: 'Sys', id: string }, profileImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null, blog?: { __typename?: 'Blogs', title?: string | null, handle?: string | null, sys: { __typename?: 'Sys', id: string } } | null } | null> } | null };
+
+export type GetPaginatedBlogPostsQueryVariables = Exact<{
+  id: Scalars['String']['input'];
+  skip?: InputMaybe<Scalars['Int']['input']>;
+}>;
+
+
+export type GetPaginatedBlogPostsQuery = { __typename?: 'Query', blogPostsCollection?: { __typename?: 'BlogPostsCollection', total: number, items: Array<{ __typename?: 'BlogPosts', handle?: string | null, title?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, sys: { __typename?: 'Sys', id: string }, blog?: { __typename?: 'Blogs', sys: { __typename?: 'Sys', id: string } } | null, content?: { __typename?: 'BlogPostsContent', json: any } | null, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null };
+
+export const GetAllBlogsCollectionLinkedFromFieldsFragmentDoc = gql`
+    fragment getAllBlogsCollectionLinkedFromFields on BlogPosts {
+  sys {
+    id
+  }
+  handle
+  title
+  tags
+  excerpt
+  featuredImage {
+    title
+    url
+  }
+}
+    `;
+export const GetAllBlogsCollectionQueryFieldsFragmentDoc = gql`
+    fragment getAllBlogsCollectionQueryFields on Blogs {
+  sys {
+    id
+  }
+  handle
+  title
+  description
+  order
+  seoTitle
+  seoDescription
+  featuredMedia {
+    url
+    title
+    contentType
+  }
+}
+    `;
+export const BlogPostFieldsFragmentDoc = gql`
+    fragment BlogPostFields on BlogPosts {
+  sys {
+    id
+  }
+  featuredImage {
+    title
+    url
+  }
+  title
+  content {
+    json
+    links {
+      assets {
+        ... on BlogPostsContentAssets {
+          block {
+            sys {
+              id
+            }
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+  tags
+  authorsCollection {
     items {
       sys {
         id
       }
+      name
+      profileImage {
+        title
+        url
+      }
+      bio
+    }
+  }
+  blog {
+    sys {
+      id
+    }
+    title
+    handle
+  }
+}
+    `;
+export const GetAllBlogsDocument = gql`
+    query getAllBlogs {
+  blogsCollection(locale: "en", order: order_ASC) {
+    items {
+      ...getAllBlogsCollectionQueryFields
+      linkedFrom {
+        blogPostsCollection(limit: 3, locale: "en", order: sys_firstPublishedAt_DESC) {
+          total
+          items {
+            ...getAllBlogsCollectionLinkedFromFields
+          }
+        }
+      }
+    }
+  }
+}
+    ${GetAllBlogsCollectionQueryFieldsFragmentDoc}
+${GetAllBlogsCollectionLinkedFromFieldsFragmentDoc}`;
+export const GetBlogPostByHandleDocument = gql`
+    query getBlogPostByHandle($blogHandle: String!, $postHandle: String!) {
+  blogPostsCollection(
+    locale: "en"
+    limit: 1
+    where: {blog: {handle: $blogHandle}, AND: {handle: $postHandle}}
+  ) {
+    items {
+      ...BlogPostFields
+    }
+  }
+}
+    ${BlogPostFieldsFragmentDoc}`;
+export const GetPaginatedBlogPostsDocument = gql`
+    query getPaginatedBlogPosts($id: String!, $skip: Int = 0) {
+  blogPostsCollection(
+    locale: "en"
+    limit: 6
+    skip: $skip
+    order: sys_firstPublishedAt_DESC
+    where: {blog: {sys: {id: $id}}}
+  ) {
+    total
+    items {
+      sys {
+        id
+      }
+      blog {
+        sys {
+          id
+        }
+      }
       handle
       title
-      description
-      order
-      seoTitle
-      seoDescription
-      featuredMedia {
-        url
+      tags
+      content {
+        json
+      }
+      excerpt
+      featuredImage {
         title
-        contentType
+        url
       }
     }
   }
@@ -1371,6 +1517,12 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     getAllBlogs(variables?: GetAllBlogsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetAllBlogsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetAllBlogsQuery>(GetAllBlogsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllBlogs', 'query');
+    },
+    getBlogPostByHandle(variables: GetBlogPostByHandleQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetBlogPostByHandleQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetBlogPostByHandleQuery>(GetBlogPostByHandleDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getBlogPostByHandle', 'query');
+    },
+    getPaginatedBlogPosts(variables: GetPaginatedBlogPostsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPaginatedBlogPostsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetPaginatedBlogPostsQuery>(GetPaginatedBlogPostsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getPaginatedBlogPosts', 'query');
     }
   };
 }

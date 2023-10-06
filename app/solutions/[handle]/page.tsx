@@ -6,6 +6,7 @@ import Button from "@/src/components/Button"
 import Link from "next/link"
 import { Metadata } from "next"
 import { solutions } from "@/src/data"
+import GetStartedToday from "@/src/components/GetStartedToday"
 
 export async function generateStaticParams() {
 
@@ -156,14 +157,7 @@ export default function Page({
                         </Fragment>
                     ))}
                 </div>
-                <div className="mt-40 text-center">
-                    <Text variant="h2">Let&#39;s get started today</Text>
-                    <div className="mt-12 flex justify-center">
-                        <Link href="/contact" title="Schedule a free consultation" passHref legacyBehavior>
-                            <Button size="large">Schedule a free consultation</Button>
-                        </Link>
-                    </div>
-                </div>
+                <GetStartedToday />
             </PageWrapper>
         )
     }

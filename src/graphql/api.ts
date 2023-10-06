@@ -9,7 +9,7 @@ const gqlClient =  new GraphQLClient(`https://graphql.contentful.com/content/v1/
         'Authorization': `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`
     }
 });
-export const { getAllBlogs } = getSdk(gqlClient);
+export const { getAllBlogs, getPaginatedBlogPosts, getBlogPostByHandle } = getSdk(gqlClient);
 
 export const queryClient = new QueryClient({
     defaultOptions: {

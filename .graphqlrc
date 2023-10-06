@@ -1,6 +1,7 @@
 {
     "schema": "schema.graphql",
     "documents": [
-        "src/_generated/*.ts"
+        "src/_generated/*.ts",
+        "src/graphql/*.graphql"
     ]
 }

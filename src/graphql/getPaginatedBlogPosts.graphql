@@ -1,0 +1,26 @@
+query getPaginatedBlogPosts($id: String!, $skip: Int = 0) {
+    blogPostsCollection(locale: "en", limit: 6, skip: $skip, order: sys_firstPublishedAt_DESC, where: { blog: { sys: { id: $id } } }) {
+        total
+        items {
+            sys {
+                id
+            }
+            blog {
+                sys {
+                    id
+                }
+            }
+            handle
+            title
+            tags
+            content {
+                json
+            }
+            excerpt
+            featuredImage {
+                title
+                url
+            }
+        }
+    }
+}
