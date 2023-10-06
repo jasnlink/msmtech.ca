@@ -57,6 +57,14 @@ export default function NavMenu() {
         {
             id: `1`,
             featuredImage: null,
+            title: `Blogs`,
+            description: null,
+            url: `/blogs`,
+            children: []
+        },
+        {
+            id: `2`,
+            featuredImage: null,
             title: `Contact`,
             description: null,
             url: `/contact`,

@@ -17,9 +17,9 @@ export interface BudgetOption {
 }
 
 const budgetOptions:Array<BudgetOption> = [
-    { id: 1, name: '$3,000 - $8,000', unavailable: false },
-    { id: 2, name: '$8,000 - $15,000', unavailable: false },
-    { id: 3, name: '$15,000 - $25,000', unavailable: false },
+    { id: 1, name: '$0 - $5,000', unavailable: false },
+    { id: 2, name: '$5,000 - $10,000', unavailable: false },
+    { id: 3, name: '$10,000 - $25,000', unavailable: false },
     { id: 4, name: '$25,000 - $50,000', unavailable: false },
     { id: 5, name: '$50,000+', unavailable: false },
 ]

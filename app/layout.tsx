@@ -5,6 +5,8 @@ import { Assistant, Archivo } from 'next/font/google'
 import GoogleAnalytics from './_components/GoogleAnalytics'
 import Footer from './_components/Footer'
 
+import RootQueryProvider from '@/src/components/providers/RootQueryProvider'
+
 const assistant = Assistant({ subsets: ['latin'] })
 const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo' })
 
@@ -19,17 +21,19 @@ export default function RootLayout({
     children: React.ReactNode,
 }) {
     return (
-        <html lang="en">
-            <body className={`${assistant.className} ${archivo.variable}`}>
-                <NavMenu />
-                <main>
-                    {children}
-                </main>
-                <Footer />
-            </body>
-            <GoogleAnalytics
-                measurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
-            />
-        </html>
+        <RootQueryProvider>
+            <html lang="en">
+                <body className={`${assistant.className} ${archivo.variable}`}>
+                        <NavMenu />
+                        <main>
+                            {children}
+                        </main>
+                        <Footer />
+                </body>
+                <GoogleAnalytics
+                    measurementId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
+                    />
+            </html>
+        </RootQueryProvider>
     )
 }

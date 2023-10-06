@@ -22,19 +22,43 @@ export default function Footer() {
             url: `/contact`,
             children: []
         },
-        // {
-        //     id: `2`,
-        //     featuredImage: null,
-        //     title: `Blog`,
-        //     description: null,
-        //     url: `/blog`,
-        //     children: []
-        // }
+        {
+            id: `2`,
+            featuredImage: null,
+            title: `Case Studies`,
+            description: null,
+            url: `/blogs/case-studies`,
+            children: []
+        },
+        {
+            id: `3`,
+            featuredImage: null,
+            title: `Services`,
+            description: null,
+            url: `/blogs/services`,
+            children: []
+        },
     ]
 
     const footerNavigationItems2: Array<NavigationItem> = [
         {
             id: `0`,
+            featuredImage: null,
+            title: `Business Technology Articles`,
+            description: null,
+            url: `/blogs/business-technology-articles`,
+            children: []
+        },
+        {
+            id: `1`,
+            featuredImage: null,
+            title: `Technology Guides`,
+            description: null,
+            url: `/blogs/technology-guides`,
+            children: []
+        },
+        {
+            id: `2`,
             featuredImage: null,
             title: `Privacy policy`,
             description: null,
@@ -42,7 +66,7 @@ export default function Footer() {
             children: []
         },
         {
-            id: `1`,
+            id: `3`,
             featuredImage: null,
             title: `Terms of service`,
             description: null,
@@ -66,13 +90,13 @@ export default function Footer() {
             url: `https://www.linkedin.com/company/msm-tech/`
         },
         {
-            id: `0`,
+            id: `1`,
             icon: `/socials/x.svg`,
             title: `X`,
             url: `https://x.com/msmtech_`
         },
         {
-            id: `0`,
+            id: `2`,
             icon: `/socials/facebook.svg`,
             title: `Facebook`,
             url: `https://www.facebook.com/msmtechologies`
@@ -93,7 +117,7 @@ export default function Footer() {
                                 className="w-48 md:w-64 lg:w-56 xl:w-72"
                             />
                         </Link>
-                        <Text variant="h4" tw="mt-8 pl-2 pr-32 font-normal">Tailored solutions, transparent partnerships, relentless excellence.</Text>
+                        <Text variant="h4" tw="mt-8 lg:pl-2 lg:pr-32 font-normal">Tailored solutions, transparent partnerships, relentless excellence.</Text>
                         <div className="mt-6 flex gap-4">
                             {footerSocialLinks.map((socialLink) => (
                                 <Link

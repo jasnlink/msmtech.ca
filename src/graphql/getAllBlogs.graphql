@@ -1,0 +1,45 @@
+fragment getAllBlogsCollectionLinkedFromFields on BlogPosts {
+    sys {
+        id
+    }
+    handle
+    title
+    tags
+    excerpt
+    featuredImage {
+        title
+        url
+    }
+}
+
+fragment getAllBlogsCollectionQueryFields on Blogs {
+    sys {
+        id
+    }
+    handle
+    title
+    description
+    order
+    seoTitle
+    seoDescription
+    featuredMedia {
+        url
+        title
+        contentType
+    }
+}
+query getAllBlogs {
+    blogsCollection(locale: "en", order: order_ASC) {
+        items {
+            ...getAllBlogsCollectionQueryFields
+            linkedFrom {
+                blogPostsCollection(limit: 3, locale: "en", order: sys_firstPublishedAt_DESC) {
+                    total
+                    items {
+                        ...getAllBlogsCollectionLinkedFromFields
+                    }
+                }
+            }
+        }
+    }
+}
