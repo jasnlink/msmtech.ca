@@ -1,0 +1,64 @@
+{
+    "general": {
+        "meta": {
+            "title": "Terms of Service"
+        }
+    },
+    "sections": {
+        "page": {
+            "title": "Terms of Service",
+            "content": [
+                {
+                    "id": "37f9716a-638b-4444-ab7c-2331703efba0",
+                    "type": "paragraph",
+                    "data": "By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement."
+                },
+                {
+                    "id": "d1787898-9909-4a7c-8629-bda9e375556b",
+                    "type": "paragraph",
+                    "data": "Services: MSM Technologies provides a range of web services including but not limited to web application development, website design and maintenance, and blog hosting."
+                },
+                {
+                    "id": "bc1293e9-7652-41a1-814a-964401940cc8",
+                    "type": "paragraph",
+                    "data": "User Responsibilities: Users agree not to engage in illegal activities or conduct that violates any applicable laws or regulations while using our services."
+                },
+                {
+                    "id": "10ec7a58-de4b-4d1e-9279-d323a3783adf",
+                    "type": "paragraph",
+                    "data": "Intellectual Property: All intellectual properties including trademarks, logos, and content belong to their respective owners."
+                },
+                {
+                    "id": "7a05888a-2cb3-4a20-a1e8-064904540509",
+                    "type": "paragraph",
+                    "data": "Privacy: Our Privacy Policy, which is incorporated here by reference, explains how we collect and use your personal information."
+                },
+                {
+                    "id": "a2e853aa-37aa-4fb7-8f5a-3caf1c410b9b",
+                    "type": "paragraph",
+                    "data": "Limitation of Liability and Disclaimer of Warranties: MSM Technologies disclaims all warranties and will not be liable for any damages or loss arising from the use of our services."
+                },
+                {
+                    "id": "ea75773f-f24a-4846-8157-618327e73e48",
+                    "type": "paragraph",
+                    "data": "Indemnification: Users agree to indemnify and hold harmless MSM Technologies from any claims or damages resulting from the misuse of our services."
+                },
+                {
+                    "id": "09e00f9c-c894-4a92-ae5e-9c5059ace833",
+                    "type": "paragraph",
+                    "data": "Governing Law: These terms shall be governed by the laws of Quebec, Canada."
+                },
+                {
+                    "id": "2f1fd945-9c49-4e05-8c37-a4bf155e07dd",
+                    "type": "paragraph",
+                    "data": "Changes to the Terms of Service: MSM Technologies reserves the right to modify these terms at any time. It's advised to review this page periodically for any updates."
+                },
+                {
+                    "id": "e1768d5b-a418-445f-b87a-16f4ef5e27c0",
+                    "type": "paragraph",
+                    "data": "Contact: If you have any questions regarding these Terms of Service, contact us at contact@msmtech.ca."
+                }
+            ]
+        }
+    }
+}

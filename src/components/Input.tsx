@@ -23,7 +23,7 @@ export default function Input({
     return (
         <div>
             {type !== 'hidden' && (
-                <label className={`ms-1 text-lg select-none cursor-default ${required ? `after:content-['*']` : ``}`} htmlFor={id}>{labelName}</label>
+                <label className={`ms-1 text-lg select-none cursor-default ${required ? `after:content-['*'] after:text-red-500` : ``}`} htmlFor={id}>{labelName}</label>
             )}
             <div className="mt-1">
                 {type === 'textarea' && (

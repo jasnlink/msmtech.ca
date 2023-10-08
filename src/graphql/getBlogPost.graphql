@@ -46,8 +46,8 @@ fragment BlogPostFields on BlogPosts {
     }
 }
 
-query getBlogPostByHandle($blogHandle: String!, $postHandle: String!) {
-    blogPostsCollection(locale: "en", limit: 1, where: { blog: { handle: $blogHandle }, AND: { handle: $postHandle }}) {
+query getBlogPostByHandle($locale: String = "en", $blogHandle: String!, $postHandle: String!) {
+    blogPostsCollection(locale: $locale, limit: 1, where: { blog: { handle: $blogHandle }, AND: { handle: $postHandle }}) {
         items {
             ...BlogPostFields
         }

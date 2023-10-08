@@ -1,0 +1,20 @@
+{
+    "general": {
+        "read_this": "Lire",
+        "read_more": "Voir plus",
+        "prev": "Préc",
+        "previous_page": "Page précédente",
+        "next": "Suiv",
+        "next_page": "Page suivante",
+        "back": "Retour sur :",
+        "meta": {
+            "title": "Blogues de technologie"
+        }
+    },
+    "sections": {
+        "page": {
+            "title": "",
+            "description": ""
+        }
+    }
+}

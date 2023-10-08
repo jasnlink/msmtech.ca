@@ -1,0 +1,64 @@
+{
+    "general": {
+        "meta": {
+            "title": "Privacy Policy"
+        }
+    },
+    "sections": {
+        "page": {
+            "title": "Privacy Policy",
+            "content": [
+                {
+                    "id": "e16925de-730c-4143-9e43-9fbb1391307e",
+                    "type": "paragraph",
+                    "data": "Last Updated: 2023-09-30."
+                },
+                {
+                    "id": "1cc016c1-9f61-4451-b2c4-d393658543af",
+                    "type": "paragraph",
+                    "data": "MSM Technologies values your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information. By using this website, you consent to the practices described in this policy."
+                },
+                {
+                    "id": "5e3b4864-7fe7-4038-b16f-3902faaa700a",
+                    "type": "paragraph",
+                    "data": "Information Collection: We collect personal information through our contact form where we gather your name and email address. Additionally, we use Google Analytics 4 to track and analyze website usage and visitor behavior."
+                },
+                {
+                    "id": "e0930179-3302-4844-83d0-561a05c2ce85",
+                    "type": "paragraph",
+                    "data": "Information Usage: The information collected is used to respond to inquiries, improve our website, and enhance user experience. By default, all emails collected will be subscribed to our email newsletter unless you opt out."
+                },
+                {
+                    "id": "7035f082-6723-4d21-b131-b9113e21b6f4",
+                    "type": "paragraph",
+                    "data": "Information Sharing and Disclosure: We do not share your personal information with third parties without your consent, except to comply with laws or to protect our rights."
+                },
+                {
+                    "id": "d30e2225-bd10-466e-903a-ce14e94974f3",
+                    "type": "paragraph",
+                    "data": "Information Security: We employ reasonable security measures to protect your information from unauthorized access, alteration, or disclosure."
+                },
+                {
+                    "id": "b3f5d777-c788-4f96-8f25-6c913f82ea47",
+                    "type": "paragraph",
+                    "data": "User Rights: You can change or update your information by contacting us at contact@msmtech.ca."
+                },
+                {
+                    "id": "a9c5b0de-ec4f-4349-8fd6-569c15e6f47e",
+                    "type": "paragraph",
+                    "data": "Cookie Policy: We use cookies to enhance website functionality and analyze website usage through Google Analytics 4."
+                },
+                {
+                    "id": "0f8c64e4-d9a9-41ae-8b3a-2e82ea25997c",
+                    "type": "paragraph",
+                    "data": "Contact Information: If you have any questions regarding this Privacy Policy, contact us at contact@msmtech.ca."
+                },
+                {
+                    "id": "98ba0856-7b4a-4d5f-b4a8-76171b9adfc00",
+                    "type": "paragraph",
+                    "data": "Updates to the Privacy Policy: We may update this Privacy Policy from time to time. We encourage you to review this policy periodically to stay informed about our privacy practices."
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "general": {
+        "read_this": "Read this",
+        "read_more": "Read more",
+        "prev": "Prev",
+        "previous_page": "Previous page",
+        "next": "Next",
+        "next_page": "Next page",
+        "back": "Back to:",
+        "meta": {
+            "title": "Technology Blogs"
+        }
+    },
+    "sections": {
+        "page": {
+            "title": "",
+            "description": ""
+        }
+    }
+}
