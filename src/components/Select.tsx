@@ -14,12 +14,13 @@ interface SelectProps {
     data: Array<SelectOption>;
     name?: string;
     labelName: string;
+    showLabel?: boolean;
     selected: SelectOption;
     onChange: Dispatch<SelectOption>;
-    required: boolean;
+    required?: boolean;
 }
 
-export default function Select({data, name, labelName, selected, onChange, required}:SelectProps) {
+export default function Select({data, name, labelName, showLabel=true, selected, onChange, required}:SelectProps) {
     return (
         <div>
             <Input
@@ -28,7 +29,9 @@ export default function Select({data, name, labelName, selected, onChange, requi
                 labelName={labelName}
                 value={selected.name}
             />
-            <Text tw={`ms-1 select-none cursor-default ${required ? `after:content-['*'] after:text-red-500` : ``}`}>{labelName}</Text>
+            {showLabel && (
+                <Text tw={`ms-1 select-none cursor-default ${required ? `after:content-['*'] after:text-red-500` : ``}`}>{labelName}</Text>
+            )}
             <div className="mt-1 relative">
                 <Listbox value={selected} onChange={onChange}>
                     <Listbox.Button className="relative text-left cursor-default select-none active:border-white w-full text-lg py-2 px-3 rounded-lg bg-transparent border border-zinc-600/80 shadow-zinc-900/80 backdrop-blur-2xl">

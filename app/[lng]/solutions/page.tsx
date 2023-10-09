@@ -4,6 +4,8 @@ import GetStartedToday from "@/src/components/GetStartedToday"
 import { useTranslation, unhookedTranslation } from "@/app/i18n"
 import type { Metadata, ResolvingMetadata } from 'next'
 
+export const revalidate = false
+
 // Generate metadata for SEO
 interface GenerateMetaDataProps {
     params: { lng: string }

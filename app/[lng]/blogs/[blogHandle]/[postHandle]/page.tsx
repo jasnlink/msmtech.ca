@@ -1,17 +1,109 @@
-import { GetBlogPostByHandleQuery } from "@/src/_generated/graphql"
+import { GetAllBlogsQuery, GetBlogPostByHandleQuery, GetPaginatedBlogPostsQuery } from "@/src/_generated/graphql"
 import GetStartedToday from "@/src/components/GetStartedToday"
 import { ArrowLeftIcon } from "@/src/components/Icon"
 import Loader from "@/src/components/Loader"
 import PageWrapper from "@/src/components/PageWrapper"
 import Text from "@/src/components/Text"
-import { getBlogPostByHandle, queryClient } from "@/src/graphql/api"
+import { getAllBlogs, getBlogPostByHandle, getPaginatedBlogPosts, queryClient } from "@/src/graphql/api"
 import { Options, documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
+import type { Metadata, ResolvingMetadata } from 'next'
 import { Translation } from "@/src/models"
+import { languages } from "@/app/i18n/settings";
+
+// Set this to false to return 404 if the handle doesn`t exist.
+export const dynamicParams = false
+export const revalidate = 3600
+
+export async function generateStaticParams() {
+    interface BlogPostRoute {
+        blogHandle: string;
+        postHandle: string;
+    }
+    let staticRoutes: BlogPostRoute[] = []
+
+    for (let lng of languages) {
+        await queryClient.prefetchQuery<GetAllBlogsQuery>(['blogs', lng], () => getAllBlogs({ locale: lng }))
+        const blogsData = queryClient.getQueryData<GetAllBlogsQuery>(['blogs', lng])
+
+        // Temporary fix before talking with the Contentful team about linkedFrom showing no results when changing locales
+        await queryClient.prefetchQuery<GetAllBlogsQuery>(['blogs', 'en'], () => getAllBlogs({ locale: 'en' }))
+        const fallbackBlogsData = queryClient.getQueryData<GetAllBlogsQuery>(['blogs', 'en'])
+
+        if (!blogsData?.blogsCollection?.items.length) {
+            continue
+        }
+        for (let blog of blogsData.blogsCollection.items) {
+
+            // Use EN fallback blog to get the number of linkedFrom items to do pagination
+            // Because switching locales seems to return 0 items even though they are linked
+            const fallbackSelectedBlog = fallbackBlogsData?.blogsCollection?.items.filter(fallbackBlog => fallbackBlog?.handle === blog?.handle)
+
+            const postLimit = 6
+            let pageTotal = 1
+
+            if (fallbackSelectedBlog && fallbackSelectedBlog.length && fallbackSelectedBlog[0]?.linkedFrom?.blogPostsCollection?.total) {
+                pageTotal = Math.ceil(fallbackSelectedBlog[0]?.linkedFrom?.blogPostsCollection?.total / postLimit)
+            }
+
+            for (let p = 1; p <= pageTotal; p++) {
+                await queryClient.prefetchQuery<GetPaginatedBlogPostsQuery>(['paginatedBlogPosts', lng, blog?.sys.id, p, postLimit], () => getPaginatedBlogPosts({ locale: lng, id: blog?.sys.id || '', limit: postLimit, skip: (p - 1) * postLimit }))
+                const postsData = queryClient.getQueryData<GetPaginatedBlogPostsQuery>(['paginatedBlogPosts', lng, blog?.sys.id, p, postLimit])
+                if (postsData && postsData.blogPostsCollection?.items.length) {
+                    for (let post of postsData?.blogPostsCollection?.items) {
+                        if (blog?.handle && post?.handle) {
+                            staticRoutes.push({
+                                blogHandle: blog?.handle,
+                                postHandle: post?.handle
+                            })
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    return staticRoutes
+}
+
+// Generate metadata for SEO
+interface GenerateMetaDataProps {
+    params: { 
+        lng: string;
+        blogHandle: string;
+        postHandle: string;
+    }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+export async function generateMetadata(
+    { params, searchParams }: GenerateMetaDataProps,
+        parent: ResolvingMetadata
+    ): Promise<Metadata> {
+
+    // read route params
+    const lng = params.lng
+    const { t } = await unhookedTranslation(lng, 'global')
+
+    await queryClient.prefetchQuery<GetBlogPostByHandleQuery>(['blogPost', params.lng, params.blogHandle, params.postHandle], () => getBlogPostByHandle({ locale: params.lng, blogHandle: params.blogHandle, postHandle: params.postHandle }))
+    const postData = queryClient.getQueryData<GetBlogPostByHandleQuery>(['blogPost', params.lng, params.blogHandle, params.postHandle])
+    
+    if (!postData?.blogPostsCollection?.items.length) {
+        return {
+            title: `${t('general.meta.title')}`,
+        }
+    }
+    
+    const selectedPost = postData?.blogPostsCollection?.items[0]
+    
+    return {
+        title: `${selectedPost?.seoTitle ? selectedPost?.seoTitle : selectedPost?.title} - ${t('general.meta.title')}`,
+        description: `${selectedPost?.seoDescription ? selectedPost?.seoDescription : ``}`
+    }
+}
 
 export default async function Page({
     params

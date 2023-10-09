@@ -13,7 +13,7 @@
             "telephone": "Telephone"
         },
         "ContactForm": {
-            "send": "",
+            "send": "Send Details",
             "form_submitted": {
                 "title": "Thank you for your interest.",
                 "subtitle": "We will get back to you very soon."

@@ -29,7 +29,7 @@ export default function MainHero({ lng, t }: MainHeroProps) {
                     </div>
                 </div>
                 <div className="fixed top-72 md:top-1/3 w-11/12 md:w-3/4 left-1/2 -translate-x-1/2 lg:mt-0 lg:left-0 lg:translate-x-0 lg:w-full lg:relative lg:top-0 container flex items-center justify-center">
-                    <Image
+                    <img
                         priority
                         src={mainScene}
                         alt={text.featured_image_alt}

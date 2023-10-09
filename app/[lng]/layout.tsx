@@ -10,9 +10,11 @@ import RootQueryProvider from '@/src/components/providers/RootQueryProvider'
 
 import { languages } from '../i18n/settings'
 import { useTranslation, unhookedTranslation } from "../i18n";
+import MetaTags from './_components/MetaTags'
 
-const assistant = Assistant({ subsets: ['latin'] })
-const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo' })
+export async function generateStaticParams() {
+    return languages.map((lng) => ({ lng }))
+}
 
 // Generate metadata for SEO
 interface GenerateMetaDataProps {
@@ -34,9 +36,8 @@ export async function generateMetadata(
     }
 }
 
-export async function generateStaticParams() {
-    return languages.map((lng) => ({ lng }))
-}
+const assistant = Assistant({ subsets: ['latin'] })
+const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo' })
 
 export default async function RootLayout({
     params: { lng },
@@ -53,6 +54,9 @@ export default async function RootLayout({
     return (
         <RootQueryProvider>
             <html lang={lng}>
+                <head>
+                    <MetaTags />
+                </head>
                 <body className={`${assistant.className} ${archivo.variable}`}>
                     <NavMenu
                         lng={lng}

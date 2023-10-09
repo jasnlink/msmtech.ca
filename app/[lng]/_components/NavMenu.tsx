@@ -11,6 +11,8 @@ import { MouseEvent, MutableRefObject } from "react"
 import MobileMenu from "./MobileMenu"
 import { Translation } from "@/src/models"
 import useT from "@/src/hooks/useT"
+import { languages } from "@/app/i18n/settings"
+import { usePathname } from "next/navigation"
 
 export interface NavigationItem {
     id: string;
@@ -18,6 +20,8 @@ export interface NavigationItem {
     title: string;
     description: string | null;
     url: string | null;
+    childrenType?: 'row' | 'col';
+    childrenCenter?: boolean;
     children: Array<NavigationItem>
 }
 
@@ -26,6 +30,8 @@ interface NavMenuProps {
     t?: Translation;
 }
 export default function NavMenu({ lng, t }: NavMenuProps) {
+
+    const pathname = usePathname()
 
     const navigationItems: Array<NavigationItem> = [
         {
@@ -40,7 +46,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                     featuredImage: `/assets/solution4-1.png`,
                     title: useT(t?.navigation.website_essentials),
                     description: null,
-                    url: `/solutions/website-essentials`,
+                    url: `/${lng}/solutions/website-essentials`,
                     children: []
                 },
                 {
@@ -48,7 +54,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                     featuredImage: `/assets/solution3-1.png`,
                     title: useT(t?.navigation.ecommerce_suite),
                     description: null,
-                    url: `/solutions/ecommerce-suite`,
+                    url: `/${lng}/solutions/ecommerce-suite`,
                     children: []
                 },
                 {
@@ -56,7 +62,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                     featuredImage: `/assets/solution1-1.png`,
                     title: useT(t?.navigation.enterprise_web_app),
                     description: null,
-                    url: `/solutions/enterprise-web-app`,
+                    url: `/${lng}/solutions/enterprise-web-app`,
                     children: []
                 }
             ]
@@ -66,7 +72,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
             featuredImage: null,
             title: useT(t?.navigation.blogs),
             description: null,
-            url: `/blogs`,
+            url: `/${lng}/blogs`,
             children: []
         },
         {
@@ -74,8 +80,33 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
             featuredImage: null,
             title: useT(t?.navigation.contact),
             description: null,
-            url: `/contact`,
+            url: `/${lng}/contact`,
             children: []
+        },
+        {
+            id: `3`,
+            featuredImage: null,
+            title: lng,
+            description: null,
+            url: null,
+            childrenType: `col`,
+            childrenCenter: false,
+            children: function(){
+                let res:NavigationItem[] = []
+                let i = 0
+                for (let lang of languages) {
+                    res.push({
+                        id: i.toString(),
+                        featuredImage: null,
+                        title: lang.toUpperCase(),
+                        description: null,
+                        url: `${process.env.NEXT_PUBLIC_HOST}${pathname ?? pathname.split(`/`).toSpliced(1,1,lang).join(`/`)}`,
+                        children: []
+                    })
+                    i++
+                }
+                return res
+            }()
         }
     ]
 
@@ -94,29 +125,30 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
         }) => {
             if(!item.children.length && isChild === false) {
                 return (
-                        <Link 
-                            className={`transition-all px-4 py-1 uppercase rounded-lg hover:bg-zinc-700/90 active:bg-zinc-500/90`}
-                            href={`/${lng}${item.url}` ?? `/${lng}`}
-                            title={item.title}
-                            onClick={() => {
-                                close()
-                            }}
-                        >
-                            {item.title}
-                        </Link>
+                    <Link 
+                        className={`transition-all px-4 py-1 uppercase rounded-lg hover:bg-zinc-700/90 active:bg-zinc-500/90`}
+                        href={`${item.url}` ?? ``}
+                        title={item.title}
+                        onClick={() => {
+                            close()
+                        }}
+                    >
+                        {item.title}
+                    </Link>
                 )
             }
             else if (!item.children.length && isChild === true) {
                 return (
                     <Link
-                        className="relative pt-3 px-3 pb-1 transition-all rounded-lg hover:bg-zinc-700/60"
-                        href={`/${lng}${item.url}` ?? `/${lng}`}
+                        className={`relative transition-all rounded-lg hover:bg-zinc-700/60 ${item.featuredImage !== null ? `pt-3 px-3 pb-1` : `pt-1 px-3 pb-1`}`}
+                        href={`${item.url}` ?? ``}
                         onClick={() => {
                             close()
                         }}
                     >
                         {item.featuredImage !== null && (
-                            <Image
+                            <img
+                                loading={`eager`}
                                 src={item.featuredImage}
                                 height={1366}
                                 width={1024}
@@ -124,14 +156,14 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                                 className="relative aspect-quarter h-48 w-auto rounded-lg shadow-lg border border-zinc-800"
                             />
                         )}
-                        <div className="mt-2 text-center">
+                        <div className={`text-center ${item.featuredImage !== null ? `mt-2` : `mt-0`}`}>
                             <Text variant="h6">{item.title}</Text>
                         </div>
                     </Link>
                 )
             } else if(item.children.length) {
                 return (
-                    <Popover>
+                    <Popover className={`relative`}>
                         {({ open, close }) => (
                             <>
                                 <Popover.Button
@@ -152,10 +184,10 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                                     leaveTo="opacity-0 blur-lg"
                                 >
                                     <Popover.Panel
-                                        className="fixed bg-transparent backdrop-blur-xl z-20 mt-4 left-0 w-full xl:w-max xl:left-1/2 xl:-translate-x-1/2"
+                                        className={`bg-transparent backdrop-blur-xl z-20 mt-4 left-0 w-full xl:w-max ${item.childrenCenter === false ? `absolute` : `fixed xl:left-1/2 xl:-translate-x-1/2`}`}
                                     >
                                         <ContentContainer p="sm">
-                                            <div className="relative flex flex-wrap justify-center items-center gap-0">
+                                            <div className={`relative flex flex-wrap justify-center items-center gap-0 ${item.childrenType === `col` ? `flex-col` : `flex-row`}`}>
                                                 {recursiveNavItemMap(item.children, true, close)}
                                             </div>
                                         </ContentContainer>

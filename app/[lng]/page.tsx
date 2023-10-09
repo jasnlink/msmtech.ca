@@ -9,6 +9,8 @@ import TechStack from "./_components/TechStack";
 import PageWrapper from "@/src/components/PageWrapper";
 import { useTranslation } from "../i18n";
 
+export const revalidate = false
+
 export default async function Home({ params }: { params: { lng: string; } }) {
 
     let {t} = await useTranslation(params.lng, `pages/index`)

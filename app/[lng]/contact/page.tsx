@@ -5,6 +5,8 @@ import PageWrapper from "@/src/components/PageWrapper"
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
 import type { Metadata, ResolvingMetadata } from 'next'
 
+export const revalidate = false
+
 // Generate metadata for SEO
 interface GenerateMetaDataProps {
     params: { lng: string }

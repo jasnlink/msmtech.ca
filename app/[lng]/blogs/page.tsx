@@ -8,6 +8,31 @@ import BlogTitle from "./_components/BlogTitle";
 import PreviewBlogPost from "./_components/PreviewBlogPost";
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
 import { Translation } from "@/src/models"
+import type { Metadata, ResolvingMetadata } from 'next'
+
+export const revalidate = 3600
+
+// Generate metadata for SEO
+interface GenerateMetaDataProps {
+    params: { 
+        lng: string;
+    }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+export async function generateMetadata(
+    { params, searchParams }: GenerateMetaDataProps,
+        parent: ResolvingMetadata
+    ): Promise<Metadata> {
+
+    // read route params
+    const lng = params.lng
+    const { t: t1 } = await unhookedTranslation(lng, 'global')
+    const { t: t2 } = await unhookedTranslation(lng, 'pages/blogs')
+
+    return {
+        title: `${t2(`general.meta.title`)} - ${t1('general.meta.title')}`,
+    }
+}
 
 export default async function Page({ params }: { params: { lng: string; } }) {
 
@@ -48,7 +73,17 @@ export default async function Page({ params }: { params: { lng: string; } }) {
                             {postsData[blog?.sys.id as string] && (
                                 <>
                                     {postsData[blog?.sys.id as string]?.blogPostsCollection?.items.map((blogPost, index, array) => (
-                                        <PreviewBlogPost key={blogPost?.sys.id} blog={blog} data={blogPost} lng={params.lng} />
+                                        <PreviewBlogPost
+                                            key={blogPost?.sys.id}
+                                            blog={blog}
+                                            data={blogPost}
+                                            lng={params.lng}
+                                            t={
+                                                {
+                                                    Blogs: tBlogs('general', {returnObjects: true})
+                                                }
+                                            }
+                                        />
                                     ))}
                                 </>
                             )}

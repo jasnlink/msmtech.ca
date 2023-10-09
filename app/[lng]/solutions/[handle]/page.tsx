@@ -1,14 +1,15 @@
-import { useId, Fragment } from "react"
-import { notFound } from "next/navigation"
-import Text from "@/src/components/Text"
-import PageWrapper from "@/src/components/PageWrapper"
-import Button from "@/src/components/Button"
-import Link from "next/link"
-import { solutionsStaticParams } from "@/src/data"
-import GetStartedToday from "@/src/components/GetStartedToday"
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
-import { Translation } from "@/src/models"
+import GetStartedToday from "@/src/components/GetStartedToday"
+import PageWrapper from "@/src/components/PageWrapper"
+import Text from "@/src/components/Text"
+import { solutionsStaticParams } from "@/src/data"
 import type { Metadata, ResolvingMetadata } from 'next'
+import { notFound } from "next/navigation"
+import { Fragment } from "react"
+
+// Set this to false to return 404 if the handle doesn`t exist.
+export const dynamicParams = false
+export const revalidate = false
 
 export async function generateStaticParams() {
 
@@ -40,9 +41,6 @@ export async function generateMetadata(
         title: `${t2(`solutions.${params.handle}.title`)} - ${t1('general.meta.title')}`,
     }
 }
-
-// Set this to false to return 404 if the handle doesn`t exist.
-export const dynamicParams = false
 
 export default async function Page({
     params

@@ -72,7 +72,8 @@ export default function SolutionStack({ lng, t }: NavMenuProps) {
                         <ContentContainer key={index}>
                             <div className="h-full flex flex-col justify-between gap-4">
                                 <div>
-                                    <Image
+                                    <img
+                                        loading={`eager`}
                                         src={data.image}
                                         height={1366}
                                         width={1024}

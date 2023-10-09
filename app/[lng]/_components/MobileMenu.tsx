@@ -49,7 +49,7 @@ export default function MobileMenu({navigationItems}:MobileMenuProps) {
                 return (
                     <Link
                         className={`transition-all px-4 py-1 text-2xl uppercase rounded-lg hover:bg-zinc-700/90 active:bg-zinc-500/90`}
-                        href={item.url ?? `/`}
+                        href={`${item.url}` ?? ``}
                         title={item.title}
                         onClick={() => {
                             close()
@@ -63,13 +63,14 @@ export default function MobileMenu({navigationItems}:MobileMenuProps) {
                 return (
                     <Link
                         className="relative pt-3 px-3 pb-1 transition-all rounded-lg hover:bg-zinc-700/60"
-                        href={item.url ?? `/`}
+                        href={`${item.url}` ?? ``}
                         onClick={() => {
                             close()
                         }}
                     >
                         {item.featuredImage !== null && (
-                            <Image
+                            <img
+                                loading={`eager`}
                                 src={item.featuredImage}
                                 height={400}
                                 width={300}
@@ -84,35 +85,46 @@ export default function MobileMenu({navigationItems}:MobileMenuProps) {
                 )
             } else if(item.children.length) {
                 return (
-
-                    <Disclosure>
-                        {({open}) => (
-                            <>
-                                <Disclosure.Button
-                                    className={`relative text-2xl uppercase flex gap-1 items-center transition-all px-4 py-1 rounded-lg ${open ? `bg-zinc-500/90` : ``}`}
-                                >
-                                    <span>{item.title}</span>
-                                    <span className={`w-4 h-4 text-white block transition-all ${open ? `rotate-180` : ``}`}>{ChevronDownIcon}</span>
-                                </Disclosure.Button>
-                                <Transition
-                                    show={open}
-                                    as={Fragment}
-                                    enter="overflow-hidden ease-out transition-slide-down duration-500"
-                                    enterFrom="max-h-0 blur-lg"
-                                    enterTo="max-h-full blur-none"
-                                    leave="overflow-hidden ease-in-out transition-slide-down duration-500"
-                                    leaveFrom="opacity-100 max-h-full blur-none"
-                                    leaveTo="opacity-0 max-h-0 blur-lg"
-                                >
-                                    <Disclosure.Panel>
-                                        <div className="relative flex flex-wrap justify-center items-center gap-0">
-                                            {recursiveMobileNavItemMap(item.children, true, close)}
-                                        </div>
-                                    </Disclosure.Panel>
-                                </Transition>
-                            </>
-                        )}
-                    </Disclosure>
+                    // Temp removal -> Causing crash in Safari mobile
+                    //
+                    // <Disclosure>
+                    //     {({open}) => (
+                    //         <>
+                    //             <Disclosure.Button
+                    //                 className={`relative text-2xl uppercase flex gap-1 items-center transition-all px-4 py-1 rounded-lg ${open ? `bg-zinc-500/90` : ``}`}
+                    //             >
+                    //                 <span>{item.title}</span>
+                    //                 <span className={`w-4 h-4 text-white block transition-all ${open ? `rotate-180` : ``}`}>{ChevronDownIcon}</span>
+                    //             </Disclosure.Button>
+                    //             <Transition
+                    //                 show={open}
+                    //                 as={Fragment}
+                    //                 enter="overflow-hidden ease-out transition-slide-down duration-500"
+                    //                 enterFrom="max-h-0 blur-lg"
+                    //                 enterTo="max-h-full blur-none"
+                    //                 leave="overflow-hidden ease-in-out transition-slide-down duration-500"
+                    //                 leaveFrom="opacity-100 max-h-full blur-none"
+                    //                 leaveTo="opacity-0 max-h-0 blur-lg"
+                    //             >
+                    //                 <Disclosure.Panel>
+                    //                     <div className="relative flex flex-wrap justify-center items-center gap-0">
+                    //                         {recursiveMobileNavItemMap(item.children, true, close)}
+                    //                     </div>
+                    //                 </Disclosure.Panel>
+                    //             </Transition>
+                    //         </>
+                    //     )}
+                    // </Disclosure>
+                    <>
+                        <div className={`relative text-2xl uppercase flex gap-1 items-center transition-all px-4 py-1 rounded-lg`}>
+                            <span>{item.title}</span>
+                        </div>
+                        <div>
+                            <div className="relative flex flex-wrap justify-center items-center gap-0">
+                                {recursiveMobileNavItemMap(item.children, true, close)}
+                            </div>
+                        </div>
+                    </>
                 )
             } else {
                 return null

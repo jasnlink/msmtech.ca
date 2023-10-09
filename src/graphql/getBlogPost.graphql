@@ -44,6 +44,8 @@ fragment BlogPostFields on BlogPosts {
         title
         handle
     }
+    seoTitle
+    seoDescription
 }
 
 query getBlogPostByHandle($locale: String = "en", $blogHandle: String!, $postHandle: String!) {

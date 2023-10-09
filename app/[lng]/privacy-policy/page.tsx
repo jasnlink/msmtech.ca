@@ -1,10 +1,11 @@
 import PageWrapper from "@/src/components/PageWrapper"
 import Text from "@/src/components/Text"
-import { useId, Fragment } from "react"
+import { Fragment } from "react"
 
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
-import { Translation } from "@/src/models"
 import type { Metadata, ResolvingMetadata } from 'next'
+
+export const revalidate = false
 
 // Generate metadata for SEO
 interface GenerateMetaDataProps {

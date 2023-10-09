@@ -25,7 +25,7 @@ export default function Text({variant='default', tw='', children}:PropsWithChild
         },
         h1: {
             element: `h1`,
-            class: `font-bold text-6xl font-serif`,
+            class: `font-bold text-5xl font-serif`,
         },
         h2: {
             element: `h2`,
