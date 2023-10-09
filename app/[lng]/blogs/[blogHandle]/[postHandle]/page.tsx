@@ -144,7 +144,13 @@ export default async function Page({
             [BLOCKS.HEADING_3]: (node, children) => <Text variant={`h5`} tw={`mb-2`}>{children}</Text>,
             [BLOCKS.PARAGRAPH]: (node, children) => <Text variant={`body1`} tw={`mb-8`}>{children}</Text>,
             [BLOCKS.HR]: (node, children) => <hr className={`my-4`} />,
-            [BLOCKS.TABLE]: (node, children) => <table className={`w-full table-auto border border-zinc-700 my-8`}><tbody>{children}</tbody></table>,
+            [BLOCKS.TABLE]: (node, children) => (
+                <div className={`w-full overflow-auto`}>
+                    <table className={`w-full table-auto border border-zinc-700 my-8`}>
+                        <tbody>{children}</tbody>
+                    </table>
+                </div>
+            ),
             [BLOCKS.TABLE_HEADER_CELL]: (node, children) => <td className={`border border-zinc-700 [&>p]:mb-0 py-2 px-4 font-bold`}>{children}</td>,
             [BLOCKS.TABLE_CELL]: (node, children) => <td className={`border border-zinc-700 [&>p]:mb-0 py-2 px-4`}>{children}</td>,
             [BLOCKS.UL_LIST]: (node, children) => <ul className={`pl-4 list-disc mb-8`}>{children}</ul>,
