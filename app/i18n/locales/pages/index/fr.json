@@ -1,0 +1,138 @@
+{
+    "general": {
+        "meta": {
+            "title": "",
+            "description": ""
+        }
+    },
+    "sections": {
+        "MainHero": {
+            "title": "Nous concevons des solutions sur mesure pour vos idées et vos besoins d'entreprise",
+            "cta": "Schédulez une consultation",
+            "featured_image_alt": "Mettant en vedette un produit logiciel"
+        },
+        "DiscoveryAnimation": {
+            "AnimationBlock": {
+                "starts_with_discovery": "Tout commence par la découverte.",
+                "uncover_needs": "Nous révélons les besoins uniques de votre projet.",
+                "ignite_minds": "Nous enflammons nos esprits créatifs,",
+                "shape_ideas": "donnant forme à votre idée en un concept robuste.",
+                "project_life": "Nous donnons vie à votre projet avec précision et passion.",
+                "rigorous_testing": "À travers des tests rigoureux,",
+                "product_ready": "nous assurons que votre produit est prêt à s'épanouir.",
+                "your_vision": "Votre vision, désormais une vérité tangible,",
+                "pierces_atmosphere": "perce l'atmosphère de l'ordinaire.",
+                "are_you_ready": "Êtes-vous prêt?",
+                "get_started_today": "Commencez aujourd'hui"
+            }
+        },
+        "ProcessStack": {
+            "title": "Notre processus pour l'excellence",
+            "ProcessCard": [
+                {
+                    "title": "Découverte",
+                    "content": [
+                        "Objectif : S'aligner sur les objectifs et les défis de votre projet."
+                    ]
+                },
+                {
+                    "title": "Planification de la maquette",
+                    "content": [
+                        "Objectif : Créer une ébauche structurale de votre projet."
+                    ]
+                },
+                {
+                    "title": "Prototype et mise en œuvre",
+                    "content": [
+                        "Objectif : Transformer le prototype en un produit pleinement fonctionnel avec vos retours."
+                    ]
+                },
+                {
+                    "title": "Test et QA",
+                    "content": [
+                        "Objectif : Assurer la qualité de votre projet."
+                    ]
+                },
+                {
+                    "title": "Lancement du projet",
+                    "content": [
+                        "Objectif : Présenter votre projet au monde."
+                    ]
+                },
+                {
+                    "title": "Support continu",
+                    "content": [
+                        "Objectif : Assurer le succès à long terme de votre projet."
+                    ]
+                }
+            ]
+        },
+        "ValueStack": {
+            "title": "Valeurs fondamentales fiables",
+            "subtitle": "Nous nous efforçons de construire un partenariat avec nos clients où la confiance mutuelle et les objectifs partagés nous propulsent vers le succès.",
+            "values": {
+                "building_for_your_cause": {
+                    "title": "Construire pour votre cause",
+                    "description": "<b><u>Construire pour votre cause :</u></b> Nous nous engageons à offrir une valeur maximale, allant souvent au-delà à nos propres frais."
+                },
+                "honesty": {
+                    "title": "Honnêteté",
+                    "description": "<b><u>Honnêteté :</u></b> Nous abordons chaque conversation avec honnêteté, évaluant vos idées, produits et entreprise avec franchise. Nous anticipons le même niveau d'honnêteté de votre part - c'est grâce à cette ouverture partagée que nous pouvons aborder et résoudre pragmatiquement les problèmes au fur et à mesure qu'ils se présentent. C'est vraiment aussi simple que ça !"
+                },
+                "transparency": {
+                    "title": "Transparence",
+                    "description": "<b><u>Transparence :</u></b> Nous encourageons votre curiosité - interrogez-nous sur la raison pour laquelle nous faisons les choses d'une certaine manière, la logique derrière nos décisions, et comment ces choix vous bénéficieront à long terme."
+                }
+            }
+        },
+        "SolutionStack": {
+            "title": "Solutions exceptionnelles pour votre budget",
+            "read_more": "En savoir plus",
+            "solutions": {
+                "website_essentials": {
+                    "title": "Essentiels de site web",
+                    "content": [
+                        "Obtenez une page d'accueil et 2-3 pages de contenu personnalisées conçues avec des modèles simples basés sur le code. Ce forfait est parfait pour une présentation basique de l'entreprise, incluant des outils de communication fondamentaux et un blog simplifié."
+                    ],
+                    "budget": "Budget : CAD $1-7k",
+                    "time": "Temps : 1 mois"
+                },
+                "ecommerce_suite": {
+                    "title": "Suite E-commerce",
+                    "content": [
+                        "Un site web et une boutique en ligne entièrement fonctionnelle pour les produits numériques et physiques, complétée par la facturation et la logistique. Adapté aux entreprises cherchant à vendre leurs propres produits et services numériques et physiques, localement ou internationalement."
+                    ],
+                    "budget": "Budget : CAD $2-10k",
+                    "time": "Temps : 1-2 mois"
+                },
+                "enterprise_web_app": {
+                    "title": "Application web d'entreprise",
+                    "content": [
+                        "Une application web complète et sur mesure développée pour dynamiser votre entreprise ou votre plateforme SaaS. Cette solution propose des modules construits sur mesure, des fonctionnalités personnalisées et des intégrations fluides, le tout conçu pour optimiser et rationaliser vos opérations commerciales spécifiques."
+                    ],
+                    "budget": "Budget : CAD $5-25k",
+                    "time": "Temps : 2-4 mois"
+                }
+            }
+        },
+        "TeamStack": {
+            "title": "À propos de l'équipe",
+            "paragraph1": "Salut, je suis Jason Che et je dirige msmtech, et je suis passionné par la transformation de vos idées en réalité numérique. Je crois fermement qu'il n'y a pas de limite à ce que nous pouvons créer lorsque la technologie est de notre côté.",
+            "paragraph2": "En tant qu'ingénieur logiciel chef, je suis votre principal interlocuteur tout au long de cette aventure. Cependant, msmtech est plus que moi. C'est un réseau d'individus talentueux - des designers, des développeurs et des créatifs qui sont experts dans leurs domaines. Selon les exigences du projet, je choisis avec soin les bonnes personnes pour nous rejoindre dans cette entreprise.",
+            "paragraph3": "Mais ne vous contentez pas de nous croire sur parole."
+        },
+        "TestimonialStack": {
+            "title": "Notre client le plus récent avait à dire...",
+            "testimonials": [
+                {
+                    "message": "L'équipe de msmtech_ était professionnelle et efficace.<br />Ils ont livré un excellent site web avec un temps de réponse rapide et ont dépassé nos attentes.",
+                    "name": "Linda Z."
+                }
+            ]
+        },
+        "TechStack": {
+            "title": "Notre stack technologique",
+            "description": "Nous réalisons chaque projet avec un mélange unique des meilleurs outils et technologies disponibles, choisis pour répondre au mieux à vos besoins et à votre vision."
+        }
+    }
+}

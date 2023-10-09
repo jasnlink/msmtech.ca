@@ -1,4 +1,4 @@
-import { PlaybackState } from "@/app/_components/DiscoveryAnimation";
+import { PlaybackState } from "@/app/[lng]/_components/DiscoveryAnimation";
 import { HTMLAttributes, forwardRef, useEffect, useRef } from "react";
 
 interface VideoProps extends HTMLAttributes<HTMLVideoElement> {

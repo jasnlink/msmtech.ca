@@ -1,0 +1,64 @@
+{
+    "general": {
+        "meta": {
+            "title": "Politique de Confidentialité"
+        }
+    },
+    "sections": {
+        "page": {
+            "title": "Politique de Confidentialité",
+            "content": [
+                {
+                    "id": "55af70cd-8af1-4c37-99ab-c7ac55d582b9",
+                    "type": "paragraph",
+                    "data": "Dernière mise à jour : 2023-09-30."
+                },
+                {
+                    "id": "ecf515fd-a85a-4262-ae0a-ed8c51005952",
+                    "type": "paragraph",
+                    "data": "MSM Technologies attache une grande importance à votre vie privée. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos informations personnelles. En utilisant ce site web, vous consentez aux pratiques décrites dans cette politique."
+                },
+                {
+                    "id": "ac5073e7-2b3e-44be-ba73-7ce7db247df6",
+                    "type": "paragraph",
+                    "data": "Collecte d'informations : Nous collectons des informations personnelles via notre formulaire de contact où nous recueillons votre nom et votre adresse e-mail. De plus, nous utilisons Google Analytics 4 pour suivre et analyser l'utilisation du site web et le comportement des visiteurs."
+                },
+                {
+                    "id": "efc06f95-c12f-49a5-9444-8a78b9db4f2b",
+                    "type": "paragraph",
+                    "data": "Utilisation des informations : Les informations collectées sont utilisées pour répondre aux demandes, améliorer notre site web et améliorer l'expérience utilisateur. Par défaut, tous les emails collectés seront abonnés à notre newsletter par email, sauf si vous vous désabonnez."
+                },
+                {
+                    "id": "d3e56dfd-81ea-43a4-876b-78ba6bc0d98c",
+                    "type": "paragraph",
+                    "data": "Partage et divulgation des informations : Nous ne partageons pas vos informations personnelles avec des tiers sans votre consentement, sauf pour se conformer aux lois ou pour protéger nos droits."
+                },
+                {
+                    "id": "1a57ee15-6b16-4b7f-bf40-28e35e3dee71",
+                    "type": "paragraph",
+                    "data": "Sécurité des informations : Nous employons des mesures de sécurité raisonnables pour protéger vos informations contre l'accès non autorisé, la modification ou la divulgation."
+                },
+                {
+                    "id": "88c696b7-fb1e-4add-8b79-a1ebff09dd47",
+                    "type": "paragraph",
+                    "data": "Droits de l'utilisateur : Vous pouvez modifier ou mettre à jour vos informations en nous contactant à contact@msmtech.ca."
+                },
+                {
+                    "id": "dcee3367-623f-4e8f-a63a-80c943548dae",
+                    "type": "paragraph",
+                    "data": "Politique en matière de cookies : Nous utilisons des cookies pour améliorer la fonctionnalité du site web et analyser l'utilisation du site web via Google Analytics 4."
+                },
+                {
+                    "id": "e9fc7af4-dda3-44d4-beb9-a4be32ad09d1",
+                    "type": "paragraph",
+                    "data": "Informations de contact : Si vous avez des questions concernant cette Politique de Confidentialité, contactez-nous à contact@msmtech.ca."
+                },
+                {
+                    "id": "a3e1e5eb-750b-40c5-a228-465170eb2b320",
+                    "type": "paragraph",
+                    "data": "Mises à jour de la Politique de Confidentialité : Nous pouvons mettre à jour cette Politique de Confidentialité de temps en temps. Nous vous encourageons à consulter cette politique périodiquement pour rester informé de nos pratiques en matière de confidentialité."
+                }
+            ]
+        }
+    }
+}

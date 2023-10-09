@@ -1,0 +1,138 @@
+{
+    "general": {
+        "meta": {
+            "title": "",
+            "description": ""
+        }
+    },
+    "sections": {
+        "MainHero": {
+            "title": "We build custom solutions for your ideas and your business needs",
+            "cta": "Schedule a free consultation",
+            "featured_image_alt": "Featuring a software product"
+        },
+        "DiscoveryAnimation": {
+            "AnimationBlock": {
+                "starts_with_discovery": "It all starts with discovery.",
+                "uncover_needs": "We uncover the unique needs of your project.",
+                "ignite_minds": "We ignite our creative minds,",
+                "shape_ideas": "shaping your idea into a robust concept.",
+                "project_life": "We bring your project to life with precision and passion.",
+                "rigorous_testing": "Through rigorous testing,",
+                "product_ready": "we ensure your product is ready to blossom.",
+                "your_vision": "Your vision, now a tangible truth,",
+                "pierces_atmosphere": "pierces the atmosphere of the ordinary.",
+                "are_you_ready": "Are you ready?",
+                "get_started_today": "Get started today"
+            }
+        },
+        "ProcessStack": {
+            "title": "Our Process for Excellence",
+            "ProcessCard": [
+                {
+                    "title": "Discovery",
+                    "content": [
+                        "Objective: To align on your project's goals and challenges."
+                    ]
+                },
+                {
+                    "title": "Wireframe Planning",
+                    "content": [
+                        "Objective: To create a structural blueprint of your project."
+                    ]
+                },
+                {
+                    "title": "Prototype & Implementation",
+                    "content": [
+                        "Objective: To transform the prototype into a fully functional product with your feedback."
+                    ]
+                },
+                {
+                    "title": "Testing & QA",
+                    "content": [
+                        "Objective: To ensure the quality of your project."
+                    ]
+                },
+                {
+                    "title": "Project Launch",
+                    "content": [
+                        "Objective: To introduce your project to the world."
+                    ]
+                },
+                {
+                    "title": "Ongoing Support",
+                    "content": [
+                        "Objective: To ensure the long-term success of your project."
+                    ]
+                }
+            ]
+        },
+        "ValueStack": {
+            "title": "Core Values You Can Trust",
+            "subtitle": "We strive to build a partnership with our clients where mutual trust and shared objectives propel us towards success.",
+            "values": {
+                "building_for_your_cause": {
+                    "title": "Building For Your Cause",
+                    "description": "<b><u>Building For Your Cause:</u></b> We are committed to delivering maximal value, often going above and beyond at our own expense."
+                },
+                "honesty": {
+                    "title": "Honesty",
+                    "description": "<b><u>Honesty:</u></b> We approach every conversation with honesty, evaluating your ideas, products, and business with candor. We anticipate the same level of honesty from you - it's through this shared openness that we can pragmatically address and resolve issues as they arise. It really is that simple!"
+                },
+                "transparency": {
+                    "title": "Transparency",
+                    "description": "<b><u>Transparency:</u></b> We encourage your curiosity - ask us about why we do things a certain way, the reasoning behind our decisions, and how these choices will benefit you in the long term."
+                }
+            }
+        },
+        "SolutionStack": {
+            "title": "Exceptional Solutions Within Your Budget",
+            "read_more": "Read more",
+            "solutions": {
+                "website_essentials": {
+                    "title": "Website Essentials",
+                    "content": [
+                        "Get a homepage and 2-3 custom content pages designed with simple code-based templates. This package is perfect for a basic business showcase, including fundamental communication tools and a straightforward blog."
+                    ],
+                    "budget": "Budget: CAD $1-7k",
+                    "time": "Time: 1 month"
+                },
+                "ecommerce_suite": {
+                    "title": "Ecommerce Suite",
+                    "content": [
+                        "A website and a fully-fledged online store for both digital and physical products, complete with invoicing and logistics. Suitable for businesses aiming to sell their own digital and physical products and services either locally or internationally."
+                    ],
+                    "budget": "Budget: CAD $2-10k",
+                    "time": "Time: 1-2 months"
+                },
+                "enterprise_web_app": {
+                    "title": "Enterprise Web App",
+                    "content": [
+                        "A comprehensive and bespoke web application developed to power your business or SaaS platform. This solution provides custom-built modules, tailored functionalities, and seamless integrations, all designed to optimize and streamline your specific business operations."
+                    ],
+                    "budget": "Budget: CAD $5-25k",
+                    "time": "Time: 2-4 months"
+                }
+            }
+        },
+        "TeamStack": {
+            "title": "About the Team",
+            "paragraph1": "Hi, I'm Jason Che and I run msmtech, and I'm all about turning your ideas into digital reality. I truly believe that there's no limit to what we can create when technology is on our side.",
+            "paragraph2": "I, as the lead engineer, am your primary contact throughout this journey. However, msmtech is more than just me. It's a network of talented individuals - designers, developers, and creatives who are experts in their fields. Depending on the project requirements, I handpick the right minds to join us on the venture.",
+            "paragraph3": "But don't just take our word for it."
+        },
+        "TestimonialStack": {
+            "title": "Our most recent client had to say",
+            "testimonials": [
+                {
+                    "message": "The team at msmtech_ was professional and efficient.<br />They delivered a great website with quick turnaround time and exceeded our expectations.",
+                    "name": "Linda Z."
+                }
+            ]
+        },
+        "TechStack": {
+            "title": "Our Technology Stack",
+            "description": "We craft each project with a unique blend of the best tools and technologies available, chosen to best meet your needs and vision."
+        }
+    }
+}

@@ -28,12 +28,12 @@ fragment getAllBlogsCollectionQueryFields on Blogs {
         contentType
     }
 }
-query getAllBlogs {
-    blogsCollection(locale: "en", order: order_ASC) {
+query getAllBlogs($locale: String = "en") {
+    blogsCollection(locale: $locale, order: order_ASC) {
         items {
             ...getAllBlogsCollectionQueryFields
             linkedFrom {
-                blogPostsCollection(limit: 3, locale: "en", order: sys_firstPublishedAt_DESC) {
+                blogPostsCollection(limit: 3, locale: $locale, order: sys_firstPublishedAt_DESC) {
                     total
                     items {
                         ...getAllBlogsCollectionLinkedFromFields

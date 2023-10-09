@@ -1,0 +1,48 @@
+{
+    "general": {
+        "meta": {
+            "title": "Web Development Agency for Your Business | msmtech_",
+            "description": "msmtech_ is a leading web development agency offering custom web solutions to businesses. From website essentials to premium ecommerce suites and enterprise web app solutions, we deliver tailored digital experiences. Contact us today for a free consultation."
+        },
+        "msmtech": {
+            "contact_email": "contact@msmtech.ca",
+            "contact_phone": "438 799-3007",
+            "contact_phone_unformatted": "4387993007",
+            "logo": {
+                "alt": "msmtech.ca logo"
+            }
+        },
+        "schedule_consultation": "Schedule a free consultation"
+    },
+    "components": {
+        "GetStartedToday": {
+            "title": "Let's get started today",
+            "action": "Schedule a free consultation"
+        }
+    },
+    "navigation": {
+        "solutions": "Solutions",
+        "blogs": "Blogs",
+        "contact": "Contact",
+        "website_essentials": "Website Essentials",
+        "ecommerce_suite": "Ecommerce Suite",
+        "enterprise_web_app": "Enterprise Web App"
+    },
+    "footer_navigation": {
+        "slogan": "Tailored solutions, transparent partnerships, relentless excellence.",
+        "menu": [
+            {
+                "solutions": "Solutions",
+                "contact": "Contact",
+                "case_studies": "Case Studies",
+                "services": "Services"
+            },
+            {
+                "business_technology_articles": "Business Technology Articles",
+                "technology_guides": "Technology Guides",
+                "privacy_policy": "Privacy policy",
+                "terms_of_service": "Terms of service"
+            }
+        ]
+    }
+}

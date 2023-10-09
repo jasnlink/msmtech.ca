@@ -1,5 +1,5 @@
-query getPaginatedBlogPosts($id: String!, $skip: Int = 0) {
-    blogPostsCollection(locale: "en", limit: 6, skip: $skip, order: sys_firstPublishedAt_DESC, where: { blog: { sys: { id: $id } } }) {
+query getPaginatedBlogPosts($locale: String = "en", $limit: Int = 6, $id: String!, $skip: Int = 0) {
+    blogPostsCollection(locale: $locale, limit: $limit, skip: $skip, order: sys_firstPublishedAt_DESC, where: { blog: { sys: { id: $id } } }) {
         total
         items {
             sys {

@@ -1,0 +1,48 @@
+{
+    "general": {
+        "meta": {
+            "title": "Agence de développement Web pour votre entreprise | msmtech_",
+            "description": "msmtech_ est une agence de développement web de premier plan offrant des solutions web personnalisées aux entreprises. Des essentiels du site web aux suites e-commerce premium et aux solutions d'applications web d'entreprise, nous offrons des expériences numériques sur mesure. Contactez-nous aujourd'hui pour une consultation gratuite."
+        },
+        "msmtech": {
+            "contact_email": "contact@msmtech.ca",
+            "contact_phone": "438 799-3007",
+            "contact_phone_unformatted": "4387993007",
+            "logo": {
+                "alt": "Logo msmtech.ca"
+            }
+        },
+        "schedule_consultation": "Schédulez une consultation"
+    },
+    "components": {
+        "GetStartedToday": {
+            "title": "Commençons aujourd'hui",
+            "action": "Schédulez une consultation"
+        }
+    },
+    "navigation": {
+        "solutions": "Solutions",
+        "blogs": "Blogues",
+        "contact": "contact",
+        "website_essentials": "Essentiels de site web",
+        "ecommerce_suite": "Suite E-commerce",
+        "enterprise_web_app": "Application web d'entreprise"
+    },
+    "footer_navigation": {
+        "slogan": "Des solutions sur mesure, des partenariats transparents, une excellence implacable.",
+        "menu": [
+            {
+                "solutions": "Solutions",
+                "contact": "Contact",
+                "case_studies": "Études de cas",
+                "services": "Services"
+            },
+            {
+                "business_technology_articles": "Articles sur la technologie d'entreprise",
+                "technology_guides": "Guides technologiques",
+                "privacy_policy": "Politique de confidentialité",
+                "terms_of_service": "Conditions d'utilisation"
+            }
+        ]
+    }
+}

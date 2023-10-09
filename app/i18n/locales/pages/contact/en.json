@@ -1,0 +1,53 @@
+{
+    "general": {
+        "meta": {
+            "title": "Schedule a Free Consultation - Contact Us",
+            "description": "msmtech_ is a leading web development agency offering custom web solutions to businesses. From website essentials to premium ecommerce suites and enterprise web app solutions, we deliver tailored digital experiences. Contact us today for a free consultation."
+        }
+    },
+    "sections": {
+        "page": {
+            "title": "Have a project in mind?",
+            "subtitle": "Leave us a few details and we'll get back to you.",
+            "email": "Email",
+            "telephone": "Telephone"
+        },
+        "ContactForm": {
+            "send": "Send Details",
+            "form_submitted": {
+                "title": "Thank you for your interest.",
+                "subtitle": "We will get back to you very soon."
+            },
+            "fields": {
+                "first_name": {
+                    "label": "First Name",
+                    "error": ""
+                },
+                "last_name": {
+                    "label": "Last Name",
+                    "error": ""
+                },
+                "email": {
+                    "label": "Email",
+                    "error": ""
+                },
+                "phone": {
+                    "label": "Phone",
+                    "error": ""
+                },
+                "budget": {
+                    "label": "Budget Range",
+                    "error": ""
+                },
+                "launch": {
+                    "label": "Target Launch",
+                    "error": ""
+                },
+                "message": {
+                    "label": "Message",
+                    "error": ""
+                }
+            }
+        }
+    }
+}

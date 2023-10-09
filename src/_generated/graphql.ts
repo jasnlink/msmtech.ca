@@ -1337,22 +1337,27 @@ export type GetAllBlogsCollectionLinkedFromFieldsFragment = { __typename?: 'Blog
 
 export type GetAllBlogsCollectionQueryFieldsFragment = { __typename?: 'Blogs', handle?: string | null, title?: string | null, description?: string | null, order?: number | null, seoTitle?: string | null, seoDescription?: string | null, sys: { __typename?: 'Sys', id: string }, featuredMedia?: { __typename?: 'Asset', url?: string | null, title?: string | null, contentType?: string | null } | null };
 
-export type GetAllBlogsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllBlogsQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['String']['input']>;
+}>;
 
 
 export type GetAllBlogsQuery = { __typename?: 'Query', blogsCollection?: { __typename?: 'BlogsCollection', items: Array<{ __typename?: 'Blogs', handle?: string | null, title?: string | null, description?: string | null, order?: number | null, seoTitle?: string | null, seoDescription?: string | null, linkedFrom?: { __typename?: 'BlogsLinkingCollections', blogPostsCollection?: { __typename?: 'BlogPostsCollection', total: number, items: Array<{ __typename?: 'BlogPosts', handle?: string | null, title?: string | null, tags?: Array<string | null> | null, excerpt?: string | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null } | null, sys: { __typename?: 'Sys', id: string }, featuredMedia?: { __typename?: 'Asset', url?: string | null, title?: string | null, contentType?: string | null } | null } | null> } | null };
 
-export type BlogPostFieldsFragment = { __typename?: 'BlogPosts', title?: string | null, tags?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, content?: { __typename?: 'BlogPostsContent', json: any, links: { __typename?: 'BlogPostsContentLinks', assets: { __typename?: 'BlogPostsContentAssets', block: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null, authorsCollection?: { __typename?: 'BlogPostsAuthorsCollection', items: Array<{ __typename?: 'Authors', name?: string | null, bio?: string | null, sys: { __typename?: 'Sys', id: string }, profileImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null, blog?: { __typename?: 'Blogs', title?: string | null, handle?: string | null, sys: { __typename?: 'Sys', id: string } } | null };
+export type BlogPostFieldsFragment = { __typename?: 'BlogPosts', title?: string | null, tags?: Array<string | null> | null, seoTitle?: string | null, seoDescription?: string | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, content?: { __typename?: 'BlogPostsContent', json: any, links: { __typename?: 'BlogPostsContentLinks', assets: { __typename?: 'BlogPostsContentAssets', block: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null, authorsCollection?: { __typename?: 'BlogPostsAuthorsCollection', items: Array<{ __typename?: 'Authors', name?: string | null, bio?: string | null, sys: { __typename?: 'Sys', id: string }, profileImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null, blog?: { __typename?: 'Blogs', title?: string | null, handle?: string | null, sys: { __typename?: 'Sys', id: string } } | null };
 
 export type GetBlogPostByHandleQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['String']['input']>;
   blogHandle: Scalars['String']['input'];
   postHandle: Scalars['String']['input'];
 }>;
 
 
-export type GetBlogPostByHandleQuery = { __typename?: 'Query', blogPostsCollection?: { __typename?: 'BlogPostsCollection', items: Array<{ __typename?: 'BlogPosts', title?: string | null, tags?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, content?: { __typename?: 'BlogPostsContent', json: any, links: { __typename?: 'BlogPostsContentLinks', assets: { __typename?: 'BlogPostsContentAssets', block: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null, authorsCollection?: { __typename?: 'BlogPostsAuthorsCollection', items: Array<{ __typename?: 'Authors', name?: string | null, bio?: string | null, sys: { __typename?: 'Sys', id: string }, profileImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null, blog?: { __typename?: 'Blogs', title?: string | null, handle?: string | null, sys: { __typename?: 'Sys', id: string } } | null } | null> } | null };
+export type GetBlogPostByHandleQuery = { __typename?: 'Query', blogPostsCollection?: { __typename?: 'BlogPostsCollection', items: Array<{ __typename?: 'BlogPosts', title?: string | null, tags?: Array<string | null> | null, seoTitle?: string | null, seoDescription?: string | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null, content?: { __typename?: 'BlogPostsContent', json: any, links: { __typename?: 'BlogPostsContentLinks', assets: { __typename?: 'BlogPostsContentAssets', block: Array<{ __typename?: 'Asset', title?: string | null, url?: string | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null, authorsCollection?: { __typename?: 'BlogPostsAuthorsCollection', items: Array<{ __typename?: 'Authors', name?: string | null, bio?: string | null, sys: { __typename?: 'Sys', id: string }, profileImage?: { __typename?: 'Asset', title?: string | null, url?: string | null } | null } | null> } | null, blog?: { __typename?: 'Blogs', title?: string | null, handle?: string | null, sys: { __typename?: 'Sys', id: string } } | null } | null> } | null };
 
 export type GetPaginatedBlogPostsQueryVariables = Exact<{
+  locale?: InputMaybe<Scalars['String']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
   id: Scalars['String']['input'];
   skip?: InputMaybe<Scalars['Int']['input']>;
 }>;
@@ -1440,15 +1445,17 @@ export const BlogPostFieldsFragmentDoc = gql`
     title
     handle
   }
+  seoTitle
+  seoDescription
 }
     `;
 export const GetAllBlogsDocument = gql`
-    query getAllBlogs {
-  blogsCollection(locale: "en", order: order_ASC) {
+    query getAllBlogs($locale: String = "en") {
+  blogsCollection(locale: $locale, order: order_ASC) {
     items {
       ...getAllBlogsCollectionQueryFields
       linkedFrom {
-        blogPostsCollection(limit: 3, locale: "en", order: sys_firstPublishedAt_DESC) {
+        blogPostsCollection(limit: 3, locale: $locale, order: sys_firstPublishedAt_DESC) {
           total
           items {
             ...getAllBlogsCollectionLinkedFromFields
@@ -1461,9 +1468,9 @@ export const GetAllBlogsDocument = gql`
     ${GetAllBlogsCollectionQueryFieldsFragmentDoc}
 ${GetAllBlogsCollectionLinkedFromFieldsFragmentDoc}`;
 export const GetBlogPostByHandleDocument = gql`
-    query getBlogPostByHandle($blogHandle: String!, $postHandle: String!) {
+    query getBlogPostByHandle($locale: String = "en", $blogHandle: String!, $postHandle: String!) {
   blogPostsCollection(
-    locale: "en"
+    locale: $locale
     limit: 1
     where: {blog: {handle: $blogHandle}, AND: {handle: $postHandle}}
   ) {
@@ -1474,10 +1481,10 @@ export const GetBlogPostByHandleDocument = gql`
 }
     ${BlogPostFieldsFragmentDoc}`;
 export const GetPaginatedBlogPostsDocument = gql`
-    query getPaginatedBlogPosts($id: String!, $skip: Int = 0) {
+    query getPaginatedBlogPosts($locale: String = "en", $limit: Int = 6, $id: String!, $skip: Int = 0) {
   blogPostsCollection(
-    locale: "en"
-    limit: 6
+    locale: $locale
+    limit: $limit
     skip: $skip
     order: sys_firstPublishedAt_DESC
     where: {blog: {sys: {id: $id}}}

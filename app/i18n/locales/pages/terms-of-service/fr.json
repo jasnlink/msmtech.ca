@@ -1,0 +1,64 @@
+{
+    "general": {
+        "meta": {
+            "title": "Conditions d'utilisation"
+        }
+    },
+    "sections": {
+        "page": {
+            "title": "Conditions d'utilisation",
+            "content": [
+                {
+                    "id": "7612e9e8-4e6a-4e39-a911-1444826b8796",
+                    "type": "paragraph",
+                    "data": "En accédant et en utilisant ce site web, vous acceptez et vous engagez à respecter les termes et les dispositions de cet accord."
+                },
+                {
+                    "id": "37b1854c-14b5-4748-a796-767fe543f035",
+                    "type": "paragraph",
+                    "data": "Services : MSM Technologies propose une gamme de services web incluant mais sans se limiter au développement d'applications web, à la conception et à la maintenance de sites web, et à l'hébergement de blogs."
+                },
+                {
+                    "id": "a55a320d-40a9-44f9-9354-439425b166c1",
+                    "type": "paragraph",
+                    "data": "Responsabilités des utilisateurs : Les utilisateurs s'engagent à ne pas se livrer à des activités illégales ou à des comportements violant les lois ou réglementations applicables lors de l'utilisation de nos services."
+                },
+                {
+                    "id": "aa484dde-1f30-471f-ad2c-1c2e17ee5436",
+                    "type": "paragraph",
+                    "data": "Propriété intellectuelle : Toutes les propriétés intellectuelles, y compris les marques de commerce, les logos et le contenu, appartiennent à leurs propriétaires respectifs."
+                },
+                {
+                    "id": "8ca14e64-71f0-433b-9e64-22552fd4ebd1",
+                    "type": "paragraph",
+                    "data": "Confidentialité : Notre Politique de Confidentialité, qui est intégrée ici par référence, explique comment nous collectons et utilisons vos informations personnelles."
+                },
+                {
+                    "id": "8972d82b-aa60-488c-8895-ba25a218bcc2",
+                    "type": "paragraph",
+                    "data": "Limitation de responsabilité et renonciation aux garanties : MSM Technologies décline toutes les garanties et ne sera pas responsable des dommages ou pertes résultant de l'utilisation de nos services."
+                },
+                {
+                    "id": "4ab0a665-0858-4607-b766-0f31287ccfb9",
+                    "type": "paragraph",
+                    "data": "Indemnisation : Les utilisateurs acceptent d'indemniser et de dégager MSM Technologies de toute responsabilité en cas de réclamations ou de dommages résultant de la mauvaise utilisation de nos services."
+                },
+                {
+                    "id": "cfdbbc06-0667-4eef-88eb-fdf80b52984c",
+                    "type": "paragraph",
+                    "data": "Loi applicable : Ces termes seront régis par les lois du Québec, Canada."
+                },
+                {
+                    "id": "eecc50a7-6d73-4aa7-b0f2-c350f40b7ca6",
+                    "type": "paragraph",
+                    "data": "Modifications des Conditions d'Utilisation : MSM Technologies se réserve le droit de modifier ces termes à tout moment. Il est conseillé de consulter cette page périodiquement pour prendre connaissance des mises à jour."
+                },
+                {
+                    "id": "5cb67f6c-ffc0-4f55-951f-5d5dfac2d6da",
+                    "type": "paragraph",
+                    "data": "Contact : Si vous avez des questions concernant ces Conditions d'Utilisation, contactez-nous à contact@msmtech.ca."
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "general": {
+        "meta": {
+            "title": "Schédulez une consultation gratuite - Contactez-nous",
+            "description": "msmtech_ est une agence de développement web de premier plan offrant des solutions web personnalisées aux entreprises. Des essentiels du site web aux suites e-commerce premium en passant par les solutions d'applications web d'entreprise, nous offrons des expériences numériques sur mesure. Contactez-nous aujourd'hui pour une consultation gratuite."
+        }
+    },
+    "sections": {
+        "page": {
+            "title": "Vous avez un projet en tête ?",
+            "subtitle": "Laissez-nous quelques détails et nous vous recontacterons.",
+            "email": "Courriel",
+            "telephone": "Téléphone"
+        },
+        "ContactForm": {
+            "send": "Envoyer",
+            "form_submitted": {
+                "title": "Merci de votre intérêt.",
+                "subtitle": "Nous vous recontacterons très bientôt."
+            },
+            "fields": {
+                "first_name": {
+                    "label": "Prénom",
+                    "error": ""
+                },
+                "last_name": {
+                    "label": "Nom de famille",
+                    "error": ""
+                },
+                "email": {
+                    "label": "Courriel",
+                    "error": ""
+                },
+                "phone": {
+                    "label": "Téléphone",
+                    "error": ""
+                },
+                "budget": {
+                    "label": "Budget",
+                    "error": ""
+                },
+                "launch": {
+                    "label": "Date de Lancement",
+                    "error": ""
+                },
+                "message": {
+                    "label": "Message",
+                    "error": ""
+                }
+            }
+        }
+    }
+}
