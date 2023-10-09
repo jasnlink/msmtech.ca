@@ -93,17 +93,22 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
             childrenCenter: false,
             children: function(){
                 let res:NavigationItem[] = []
-                let i = 0
-                for (let lang of languages) {
-                    res.push({
-                        id: i.toString(),
-                        featuredImage: null,
-                        title: lang.toUpperCase(),
-                        description: null,
-                        url: `${process.env.NEXT_PUBLIC_HOST}${pathname ?? pathname.split(`/`).toSpliced(1,1,lang).join(`/`)}`,
-                        children: []
-                    })
-                    i++
+                if (pathname) {
+                    let i = 0
+                    for (let lang of languages) {
+                        let splitPath = pathname.split(`/`)
+                        splitPath[1] = lang
+                        const joinedPath = splitPath.join(`/`)
+                        res.push({
+                            id: i.toString(),
+                            featuredImage: null,
+                            title: lang.toUpperCase(),
+                            description: null,
+                            url: `${process.env.NEXT_PUBLIC_HOST}${joinedPath}`,
+                            children: []
+                        })
+                        i++
+                    }
                 }
                 return res
             }()
