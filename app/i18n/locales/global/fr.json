@@ -12,12 +12,12 @@
                 "alt": "Logo msmtech.ca"
             }
         },
-        "schedule_consultation": "Schédulez une consultation"
+        "schedule_consultation": "Planifier une consultation"
     },
     "components": {
         "GetStartedToday": {
             "title": "Commençons aujourd'hui",
-            "action": "Schédulez une consultation"
+            "action": "Planifier une consultation"
         }
     },
     "navigation": {
