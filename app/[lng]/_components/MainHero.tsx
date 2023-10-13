@@ -36,7 +36,7 @@ export default function MainHero({ lng, t }: MainHeroProps) {
                         height={`492`}
                         width={`656`}
                         className={`w-full h-auto object-contain rounded-lg`}
-                        mxWidths={{
+                        mxwidths={{
                             '2xl': 768,
                             xl: 768,
                             lg: 768,

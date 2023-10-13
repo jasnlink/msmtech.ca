@@ -77,7 +77,7 @@ export default function MobileMenu({navigationItems}:MobileMenuProps) {
                                 height={`400`}
                                 width={`300`}
                                 className={`relative aspect-quarter h-48 w-auto rounded-lg shadow-lg border border-zinc-800`}
-                                mxWidths={{
+                                mxwidths={{
                                     '2xl': 360,
                                     xl: 360,
                                     lg: 360,

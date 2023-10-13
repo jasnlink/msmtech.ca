@@ -35,7 +35,7 @@ export default function PreviewBlogPost({ blog, data, lng, t }: PreviewBlogPostP
                                 height={`1600`}
                                 width={`900`}
                                 className={`w-full h-auto aspect-video shadow-lg border border-zinc-800 rounded-lg`}
-                                mxWidths={{
+                                mxwidths={{
                                     '2xl': 560,
                                     xl: 560,
                                     lg: 840,

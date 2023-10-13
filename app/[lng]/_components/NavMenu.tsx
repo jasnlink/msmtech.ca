@@ -160,7 +160,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                                 height={`1024`}
                                 width={`1366`}
                                 className={`relative aspect-quarter h-48 w-auto rounded-lg shadow-lg border border-zinc-800`}
-                                mxWidths={{
+                                mxwidths={{
                                     '2xl': 360,
                                     xl: 360,
                                     lg: 360,
