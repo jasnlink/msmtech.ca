@@ -13,6 +13,7 @@ import { Translation } from "@/src/models"
 import useT from "@/src/hooks/useT"
 import { languages } from "@/app/i18n/settings"
 import { usePathname } from "next/navigation"
+import MxImage from "@/src/components/MxImage"
 
 export interface NavigationItem {
     id: string;
@@ -43,7 +44,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
             children: [
                 {
                     id: `0-0`,
-                    featuredImage: `/assets/solution4-1.png`,
+                    featuredImage: `https://images.ctfassets.net/psv30rr5xkc2/1QSKuivJsgxTdZctftNrI2/b38bd77e733de79361c2a528fd13318f/solution4-1.png`,
                     title: useT(t?.navigation.website_essentials),
                     description: null,
                     url: `/${lng}/solutions/website-essentials`,
@@ -51,7 +52,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                 },
                 {
                     id: `0-1`,
-                    featuredImage: `/assets/solution3-1.png`,
+                    featuredImage: `https://images.ctfassets.net/psv30rr5xkc2/718KY5Lge8tUNtQeUB6HCV/265715dc5aeba4bbee388f4e93f25302/solution3-1.png`,
                     title: useT(t?.navigation.ecommerce_suite),
                     description: null,
                     url: `/${lng}/solutions/ecommerce-suite`,
@@ -59,7 +60,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                 },
                 {
                     id: `0-2`,
-                    featuredImage: `/assets/solution1-1.png`,
+                    featuredImage: `https://images.ctfassets.net/psv30rr5xkc2/1EzqvXLGyDsy6gWLIs7bsi/9bcb37d9c65b6f7ebf929b5378c7299a/solution1-1.png`,
                     title: useT(t?.navigation.enterprise_web_app),
                     description: null,
                     url: `/${lng}/solutions/enterprise-web-app`,
@@ -152,13 +153,21 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
                         }}
                     >
                         {item.featuredImage !== null && (
-                            <img
+                            <MxImage 
                                 loading={`eager`}
                                 src={item.featuredImage}
-                                height={1366}
-                                width={1024}
                                 alt={item.title}
-                                className="relative aspect-quarter h-48 w-auto rounded-lg shadow-lg border border-zinc-800"
+                                height={`1024`}
+                                width={`1366`}
+                                className={`relative aspect-quarter h-48 w-auto rounded-lg shadow-lg border border-zinc-800`}
+                                mxWidths={{
+                                    '2xl': 360,
+                                    xl: 360,
+                                    lg: 360,
+                                    md: 360,
+                                    sm: 360,
+                                    none: 360
+                                }}
                             />
                         )}
                         <div className={`text-center ${item.featuredImage !== null ? `mt-2` : `mt-0`}`}>

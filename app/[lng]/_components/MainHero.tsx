@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Translation } from "@/src/models"
 import useT from "@/src/hooks/useT"
+import MxImage from "@/src/components/MxImage";
 
 interface MainHeroProps {
     lng: string;
@@ -28,10 +29,21 @@ export default function MainHero({ lng, t }: MainHeroProps) {
                     </div>
                 </div>
                 <div className="fixed top-72 md:top-1/3 w-11/12 md:w-3/4 left-1/2 -translate-x-1/2 lg:mt-0 lg:left-0 lg:translate-x-0 lg:w-full lg:relative lg:top-0 container flex items-center justify-center">
-                    <img
-                        src={`/assets/main-scene.png`}
+                    <MxImage 
+                        loading={`eager`}
+                        src={`https://images.ctfassets.net/psv30rr5xkc2/kBWhOczJnG6IIUSz0CN6i/653819d921c31c5769774fc32e72b2ed/main-scene.png`}
                         alt={text.featured_image_alt}
-                        className="w-full h-auto object-contain rounded-lg"
+                        height={`492`}
+                        width={`656`}
+                        className={`w-full h-auto object-contain rounded-lg`}
+                        mxWidths={{
+                            '2xl': 768,
+                            xl: 768,
+                            lg: 768,
+                            md: 768,
+                            sm: 768,
+                            none: 768
+                        }}
                     />
                     <div className="z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 content-[''] rounded-full shadow-primary-800/70 shadow-[0px_0px_50vw_400px]"></div>
                 </div>

@@ -8,6 +8,7 @@ import { CloseIcon, MobileMenuIcon, ChevronDownIcon } from "@/src/components/Ico
 import { Fragment, useState, useRef } from "react";
 import ContentContainer from "@/src/components/ContentContainer";
 import Text from "@/src/components/Text";
+import MxImage from "@/src/components/MxImage";
 
 interface MobileMenuProps {
     navigationItems: Array<NavigationItem>;
@@ -69,13 +70,21 @@ export default function MobileMenu({navigationItems}:MobileMenuProps) {
                         }}
                     >
                         {item.featuredImage !== null && (
-                            <img
+                            <MxImage 
                                 loading={`eager`}
                                 src={item.featuredImage}
-                                height={400}
-                                width={300}
                                 alt={item.title}
-                                className="relative aspect-quarter h-48 w-auto rounded-lg shadow-lg border border-zinc-800"
+                                height={`400`}
+                                width={`300`}
+                                className={`relative aspect-quarter h-48 w-auto rounded-lg shadow-lg border border-zinc-800`}
+                                mxWidths={{
+                                    '2xl': 360,
+                                    xl: 360,
+                                    lg: 360,
+                                    md: 360,
+                                    sm: 360,
+                                    none: 360
+                                }}
                             />
                         )}
                         <div className="mt-2 text-center">

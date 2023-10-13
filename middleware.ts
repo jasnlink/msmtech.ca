@@ -11,9 +11,14 @@ export const config = {
 }
 
 export function middleware(req: NextRequest) {
-
-    if (redirects[req.nextUrl.pathname]) {
-        return NextResponse.redirect(new URL(redirects[req.nextUrl.pathname], req.url))
+    try {
+        if (redirects[req.nextUrl.pathname]) {
+            console.log(`Middleware Redirect on: ${req.url} -> to: ${redirects[req.nextUrl.pathname]}`)
+            return NextResponse.redirect(new URL(redirects[req.nextUrl.pathname], req.url), 301)
+        }
+    } catch (error) {
+        console.error('Middleware error:', error);
+        return NextResponse.next();
     }
 
     try {
@@ -39,7 +44,7 @@ export function middleware(req: NextRequest) {
         ) {
             // const removedLocale = splitPathname.splice(1, 1)
             // const purifiedPathname = splitPathname.join('/')
-            return NextResponse.redirect(new URL(`/${lng}${req.nextUrl.pathname}${req.nextUrl.search ? req.nextUrl.search : ``}`, req.url))
+            return NextResponse.redirect(new URL(`/${lng}${req.nextUrl.pathname}${req.nextUrl.search ? req.nextUrl.search : ``}`, req.url), 301)
         }
         
         if (req.headers.has('referer')) {

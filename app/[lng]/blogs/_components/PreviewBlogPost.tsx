@@ -9,6 +9,7 @@ import { ArrowRightIcon } from "@/src/components/Icon";
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
 import { Translation } from "@/src/models"
 import useT from "@/src/hooks/useT";
+import MxImage from "@/src/components/MxImage";
 
 interface PreviewBlogPostProps {
     blog: GetAllBlogsCollectionQueryFieldsFragment | null;
@@ -27,13 +28,21 @@ export default function PreviewBlogPost({ blog, data, lng, t }: PreviewBlogPostP
                 <div className={`flex flex-col h-full justify-between`}>
                     <div>
                         <Link href={`/${lng}/blogs/${blog?.handle}/${data?.handle}`} title={data?.title || ``} className={`block`}>
-                            <img
+                            <MxImage 
                                 loading={`eager`}
                                 src={data?.featuredImage?.url ?? `/assets/logo-splash-black.svg`}
-                                height={1600}
-                                width={900}
                                 alt={data?.featuredImage?.title ?? ``}
+                                height={`1600`}
+                                width={`900`}
                                 className={`w-full h-auto aspect-video shadow-lg border border-zinc-800 rounded-lg`}
+                                mxWidths={{
+                                    '2xl': 560,
+                                    xl: 560,
+                                    lg: 840,
+                                    md: 680,
+                                    sm: 680,
+                                    none: 680
+                                }}
                             />
                         </Link>
                         <Link href={`/${lng}/blogs/${blog?.handle}/${data?.handle}`} title={data?.title || ``} className={`block`}>

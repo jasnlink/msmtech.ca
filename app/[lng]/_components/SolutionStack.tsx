@@ -5,6 +5,9 @@ import Button from "@/src/components/Button";
 import Link from "next/link";
 import { Translation } from "@/src/models"
 import useT from "@/src/hooks/useT"
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '@/tailwind.config.js'
+import MxImage from "@/src/components/MxImage";
 
 export interface SolutionContentData {
     id: number;
@@ -22,10 +25,13 @@ interface NavMenuProps {
 }
 export default function SolutionStack({ lng, t }: NavMenuProps) {
 
+    const {theme} = resolveConfig(tailwindConfig)
+    const breakpoints:any = theme?.screens
+
     const solutionContentData: Array<SolutionContentData> = [
         {
             id: 0,
-            image: `/assets/solution4-1.png`,
+            image: `https://images.ctfassets.net/psv30rr5xkc2/1QSKuivJsgxTdZctftNrI2/b38bd77e733de79361c2a528fd13318f/solution4-1.png`,
             title: useT(t?.SolutionStack.solutions.website_essentials.title),
             content: [
                 useT(t?.SolutionStack.solutions.website_essentials.content[0])
@@ -36,7 +42,7 @@ export default function SolutionStack({ lng, t }: NavMenuProps) {
         },
         {
             id: 1,
-            image: `/assets/solution3-1.png`,
+            image: `https://images.ctfassets.net/psv30rr5xkc2/718KY5Lge8tUNtQeUB6HCV/265715dc5aeba4bbee388f4e93f25302/solution3-1.png`,
             title: useT(t?.SolutionStack.solutions.ecommerce_suite.title),
             content: [
                 useT(t?.SolutionStack.solutions.ecommerce_suite.content[0])
@@ -47,7 +53,7 @@ export default function SolutionStack({ lng, t }: NavMenuProps) {
         },
         {
             id: 2,
-            image: `/assets/solution1-1.png`,
+            image: `https://images.ctfassets.net/psv30rr5xkc2/1EzqvXLGyDsy6gWLIs7bsi/9bcb37d9c65b6f7ebf929b5378c7299a/solution1-1.png`,
             title: useT(t?.SolutionStack.solutions.enterprise_web_app.title),
             content: [
                 useT(t?.SolutionStack.solutions.enterprise_web_app.content[0])
@@ -72,13 +78,21 @@ export default function SolutionStack({ lng, t }: NavMenuProps) {
                         <ContentContainer key={index}>
                             <div className="h-full flex flex-col justify-between gap-4">
                                 <div>
-                                    <img
-                                        loading={`eager`}
+                                    <MxImage 
+                                        loading={`lazy`}
                                         src={data.image}
-                                        height={1366}
-                                        width={1024}
                                         alt={data.title}
-                                        className="w-full aspect-quarter rounded-lg shadow-lg border border-zinc-800"
+                                        height={`500`}
+                                        width={`375`}
+                                        className={`w-full aspect-quarter rounded-lg shadow-lg border border-zinc-800`}
+                                        mxWidths={{
+                                            '2xl': 760,
+                                            xl: 540,
+                                            lg: 540,
+                                            md: 1080,
+                                            sm: 840,
+                                            none: 760
+                                        }}
                                     />
                                     <div className="mt-8">
                                         <Text variant="h3">{data.title}</Text>
