@@ -85,7 +85,7 @@ export default function SolutionStack({ lng, t }: NavMenuProps) {
                                         height={`500`}
                                         width={`375`}
                                         className={`w-full aspect-quarter rounded-lg shadow-lg border border-zinc-800`}
-                                        mxwidths={{
+                                        mxWidths={{
                                             '2xl': 760,
                                             xl: 540,
                                             lg: 540,
