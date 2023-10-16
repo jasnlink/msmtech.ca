@@ -12,8 +12,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
 import type { Metadata, ResolvingMetadata } from 'next'
-import { Translation } from "@/src/models"
-import { languages } from "@/app/i18n/settings";
+import { languages, fallbackLng } from "@/app/i18n/settings";
 
 // Set this to false to return 404 if the handle doesn`t exist.
 export const dynamicParams = false
@@ -98,10 +97,18 @@ export async function generateMetadata(
     }
     
     const selectedPost = postData?.blogPostsCollection?.items[0]
+
+    const alternateLngPages = languages.reduce((acc, lng) => ({ ...acc, [lng]: `${process.env.NEXT_PUBLIC_HOST}/${lng}/blogs/${params.blogHandle}/${params.postHandle}`}), {})
     
     return {
         title: `${selectedPost?.seoTitle ? selectedPost?.seoTitle : selectedPost?.title} - ${t('general.meta.title')}`,
-        description: `${selectedPost?.seoDescription ? selectedPost?.seoDescription : ``}`
+        description: `${selectedPost?.seoDescription ? selectedPost?.seoDescription : ``}`,
+        alternates: {
+            languages: {
+                ...alternateLngPages,
+                'x-default': `${process.env.NEXT_PUBLIC_HOST}/${fallbackLng}/blogs/${params.blogHandle}/${params.postHandle}`,
+            }
+        }
     }
 }
 
@@ -179,7 +186,7 @@ export default async function Page({
             )}
             {post && (
                 <>
-                    <Link href={`/${params.lng}/blogs/${post?.blog?.handle}`} title={`${tBlogs('general.back')} ${post?.blog?.title}`} className={`mb-2 flex gap-1 items-center w-fit group px-4 py-1 transition-all rounded-lg hover:bg-zinc-700/90`}><ArrowLeftIcon className={`fill-white h-6 w-auto transition-all group-hover:-translate-x-0.5`} /><Text>{`${tBlogs('general.back')} ${post?.blog?.title}`}</Text></Link>
+                    <Link href={`/${params.lng}/blogs/${post?.blog?.handle}`} title={`${tBlogs('general.back')} ${post?.blog?.title}`} className={`mb-2 flex gap-1 items-center w-fit group px-4 py-1 transition-all rounded-lg hover:bg-zinc-700/90 active:bg-zinc-500/90`}><ArrowLeftIcon className={`fill-white h-6 w-auto transition-all group-hover:-translate-x-0.5`} /><Text>{`${tBlogs('general.back')} ${post?.blog?.title}`}</Text></Link>
                     <Image
                         src={post.featuredImage?.url ?? `/assets/logo-splash-black.svg`}
                         height={1600}

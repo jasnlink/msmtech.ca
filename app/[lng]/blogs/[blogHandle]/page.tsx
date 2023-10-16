@@ -1,5 +1,5 @@
 import { unhookedTranslation, useTranslation } from "@/app/i18n";
-import { languages } from "@/app/i18n/settings";
+import { languages, fallbackLng } from "@/app/i18n/settings";
 import { Blogs, GetAllBlogsQuery, GetPaginatedBlogPostsQuery } from "@/src/_generated/graphql";
 import GetStartedToday from "@/src/components/GetStartedToday";
 import PageWrapper from "@/src/components/PageWrapper";
@@ -66,9 +66,17 @@ export async function generateMetadata(
         }
     }
 
+    const alternateLngPages = languages.reduce((acc, lng) => ({ ...acc, [lng]: `${process.env.NEXT_PUBLIC_HOST}/${lng}/blogs/${params.blogHandle}`}), {})
+
     return {
         title: `${selectedBlog[0]?.seoTitle ? selectedBlog[0]?.seoTitle : selectedBlog[0]?.title} - ${t('general.meta.title')}`,
-        description: `${selectedBlog[0]?.seoDescription ? selectedBlog[0]?.seoDescription : selectedBlog[0]?.description ? selectedBlog[0]?.description : ``}`
+        description: `${selectedBlog[0]?.seoDescription ? selectedBlog[0]?.seoDescription : selectedBlog[0]?.description ? selectedBlog[0]?.description : ``}`,
+        alternates: {
+            languages: {
+                ...alternateLngPages,
+                'x-default': `${process.env.NEXT_PUBLIC_HOST}/${fallbackLng}/blogs/${params.blogHandle}`,
+            }
+        }
     }
 }
 

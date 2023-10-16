@@ -7,9 +7,33 @@ import TestimonialStack from "./_components/TestimonialStack";
 import TeamStack from "./_components/TeamStack";
 import TechStack from "./_components/TechStack";
 import PageWrapper from "@/src/components/PageWrapper";
-import { useTranslation } from "../i18n";
+import { unhookedTranslation, useTranslation } from "@/app/i18n"
+import type { Metadata, ResolvingMetadata } from 'next'
+import { languages, fallbackLng } from "@/app/i18n/settings"
 
 export const revalidate = false
+
+// Generate metadata for SEO
+interface GenerateMetaDataProps {
+    params: { lng: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+export async function generateMetadata(
+    { params, searchParams }: GenerateMetaDataProps,
+        parent: ResolvingMetadata
+    ): Promise<Metadata> {
+
+    const alternateLngPages = languages.reduce((acc, lng) => ({ ...acc, [lng]: `${process.env.NEXT_PUBLIC_HOST}/${lng}`}), {})
+
+    return {
+        alternates: {
+            languages: {
+                ...alternateLngPages,
+                'x-default': `${process.env.NEXT_PUBLIC_HOST}/${fallbackLng}`,
+            }
+        }
+    }
+}
 
 export default async function Home({ params }: { params: { lng: string; } }) {
 

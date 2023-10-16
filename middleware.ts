@@ -11,13 +11,14 @@ export const config = {
 }
 
 export function middleware(req: NextRequest) {
+
     try {
         if (redirects[req.nextUrl.pathname]) {
-            console.log(`Middleware Redirect on: ${req.url} -> to: ${redirects[req.nextUrl.pathname]}`)
+            console.log(`Middleware Redirect on: ${req.url ?? `null req.url`} -> to: ${redirects[req.nextUrl.pathname]}`)
             return NextResponse.redirect(new URL(redirects[req.nextUrl.pathname], req.url), 301)
         }
     } catch (error) {
-        console.error('Middleware error:', error);
+        console.error('Middleware hard-coded redirect error:', error);
         return NextResponse.next();
     }
 
@@ -57,7 +58,7 @@ export function middleware(req: NextRequest) {
     
         return NextResponse.next()
     } catch (error) {
-        console.error('Middleware error:', error);
+        console.error('Middleware localization error:', error);
         return NextResponse.next();
     }
 }

@@ -227,7 +227,7 @@ export default function NavMenu({ lng, t }: NavMenuProps) {
         <nav className={`fixed top-0 w-full z-30 py-4 lg:py-6`}>
             <div className="px-4 xl:container mx-auto flex items-center justify-between">
                 <div className="flex items-center gap-24 lg:gap-12 xl:gap-32">
-                    <Link href={`/${lng}`} title="msmtech.ca">
+                    <Link href={`/${lng}`} title="msmtech.ca" className={`hover:bg-zinc-700/90 active:bg-zinc-500/90 transition-all rounded-lg py-1 px-1`}>
                         <Image
                             priority
                             src="/assets/logo-main-white-v2.svg"

@@ -5,6 +5,8 @@ import { Fragment } from "react"
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
 import type { Metadata, ResolvingMetadata } from 'next'
 
+import { languages, fallbackLng } from "@/app/i18n/settings"
+
 export const revalidate = false
 
 // Generate metadata for SEO
@@ -22,8 +24,16 @@ export async function generateMetadata(
     const { t: t1 } = await unhookedTranslation(lng, 'global')
     const { t: t2 } = await unhookedTranslation(lng, 'pages/privacy-policy')
 
+    const alternateLngPages = languages.reduce((acc, lng) => ({ ...acc, [lng]: `${process.env.NEXT_PUBLIC_HOST}/${lng}/privacy-policy`}), {})
+
     return {
         title: `${t2('general.meta.title')} - ${t1('general.meta.title')}`,
+        alternates: {
+            languages: {
+                ...alternateLngPages,
+                'x-default': `${process.env.NEXT_PUBLIC_HOST}/${fallbackLng}/privacy-policy`,
+            }
+        }
     }
 }
 

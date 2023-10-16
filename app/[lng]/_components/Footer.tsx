@@ -120,7 +120,7 @@ export default function Footer({ lng, t }: FooterProps) {
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-60 justify-between">
                     <div className="order-2 lg:order-1">
-                        <Link href={`/${lng}`} title="msmtech.ca">
+                        <Link href={`/${lng}`} title="msmtech.ca" className={`hover:bg-zinc-700/90 active:bg-zinc-500/90 transition-all rounded-lg py-1 px-1 block w-fit`}>
                             <Image
                                 src="/assets/logo-main-white-v2.svg"
                                 height={64}

@@ -52,7 +52,9 @@ export default function PreviewBlogPost({ blog, data, lng, t }: PreviewBlogPostP
                             <Text tw={`mt-4`}>{data?.excerpt}</Text>
                         )}
                     </div>
-                    <Link href={`/${lng}/blogs/${blog?.handle}/${data?.handle}`} title={text} className={`mt-8 flex gap-1 items-center w-fit group`}><Text>{text}</Text><ArrowRightIcon className={`fill-white h-6 w-auto transition-all group-hover:translate-x-0.5`} /></Link>
+                    <div className={`mt-8 flex justify-end`}>
+                        <Link href={`/${lng}/blogs/${blog?.handle}/${data?.handle}`} title={text} className={`flex gap-1 items-center w-fit group rounded-lg px-4 py-1 transition-all hover:bg-zinc-700/90 active:bg-zinc-500/90`}><Text>{text}</Text><ArrowRightIcon className={`fill-white h-6 w-auto transition-all group-hover:translate-x-0.5`} /></Link>
+                    </div>
                 </div>
             </ContentContainer>
         </PageWrapper>
