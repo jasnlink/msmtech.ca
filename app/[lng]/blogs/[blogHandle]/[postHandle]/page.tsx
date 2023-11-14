@@ -13,6 +13,7 @@ import { notFound } from "next/navigation"
 import { unhookedTranslation, useTranslation } from "@/app/i18n"
 import type { Metadata, ResolvingMetadata } from 'next'
 import { languages, fallbackLng } from "@/app/i18n/settings";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
 // Set this to false to return 404 if the handle doesn`t exist.
 export const dynamicParams = false
@@ -99,10 +100,24 @@ export async function generateMetadata(
     const selectedPost = postData?.blogPostsCollection?.items[0]
 
     const alternateLngPages = languages.reduce((acc, lng) => ({ ...acc, [lng]: `${process.env.NEXT_PUBLIC_HOST}/${lng}/blogs/${params.blogHandle}/${params.postHandle}`}), {})
-    
+    const plainTextPostContent = documentToPlainTextString(selectedPost?.content?.json).substring(0, 250)
+
     return {
+        metadataBase: new URL(process.env.NEXT_PUBLIC_HOST ?? 'localhost'),
         title: `${selectedPost?.seoTitle ? selectedPost?.seoTitle : selectedPost?.title} - ${t('general.meta.title')}`,
-        description: `${selectedPost?.seoDescription ? selectedPost?.seoDescription : ``}`,
+        description: `${selectedPost?.seoDescription ? selectedPost?.seoDescription : plainTextPostContent}`,
+        openGraph: {
+            title: `${selectedPost?.seoTitle ? selectedPost?.seoTitle : selectedPost?.title}`,
+            type: `article`,
+            authors: `MSM Technologies`,
+            description: `${selectedPost?.seoDescription ? selectedPost?.seoDescription : plainTextPostContent}`,
+            images: [{
+                height: 1200,
+                width: 1200,
+                url: selectedPost?.featuredImage?.url ?? `/assets/logo-1200x1200.png`,
+                alt: selectedPost?.featuredImage?.title ?? `msmtech logo`
+            }]
+        },
         alternates: {
             languages: {
                 ...alternateLngPages,
@@ -181,31 +196,33 @@ export default async function Page({
     const PostContent = documentToReactComponents(post?.content?.json, renderOptions)
     return (
         <PageWrapper className={`py-24 md:py-32 xl:py-40 lg:w-3/4 xl:w-1/2 container mx-auto relative`}>
-            {!!!post && (
-                <Loader />
-            )}
-            {post && (
-                <>
-                    <Link href={`/${params.lng}/blogs/${post?.blog?.handle}`} title={`${tBlogs('general.back')} ${post?.blog?.title}`} className={`mb-2 flex gap-1 items-center w-fit group px-4 py-1 transition-all rounded-lg hover:bg-zinc-700/90 active:bg-zinc-500/90`}><ArrowLeftIcon className={`fill-white h-6 w-auto transition-all group-hover:-translate-x-0.5`} /><Text>{`${tBlogs('general.back')} ${post?.blog?.title}`}</Text></Link>
-                    <Image
-                        src={post.featuredImage?.url ?? `/assets/logo-splash-black.svg`}
-                        height={1600}
-                        width={900}
-                        alt={post.featuredImage?.title ?? ``}
-                        className={`w-full h-auto aspect-video shadow-lg border border-zinc-800 rounded-lg`}
-                    />
-                    <Text variant={`h1`} tw={`mt-8 mb-12`}>{post?.title}</Text>
-                    {PostContent}
-                </>
-            )}
-            <GetStartedToday
-                lng={params.lng}
-                t={
-                    {
-                        GetStartedToday: tGlobal('components.GetStartedToday', {returnObjects: true})
+            <article>
+                {!!!post && (
+                    <Loader />
+                )}
+                {post && (
+                    <>
+                        <Link href={`/${params.lng}/blogs/${post?.blog?.handle}`} title={`${tBlogs('general.back')} ${post?.blog?.title}`} className={`mb-2 flex gap-1 items-center w-fit group px-4 py-1 transition-all rounded-lg hover:bg-zinc-700/90 active:bg-zinc-500/90`}><ArrowLeftIcon className={`fill-white h-6 w-auto transition-all group-hover:-translate-x-0.5`} /><Text>{`${tBlogs('general.back')} ${post?.blog?.title}`}</Text></Link>
+                        <Image
+                            src={post.featuredImage?.url ?? `/assets/logo-splash-black.svg`}
+                            height={1600}
+                            width={900}
+                            alt={post.featuredImage?.title ?? ``}
+                            className={`w-full h-auto aspect-video shadow-lg border border-zinc-800 rounded-lg`}
+                        />
+                        <Text variant={`h1`} tw={`mt-8 mb-12`}>{post?.title}</Text>
+                        {PostContent}
+                    </>
+                )}
+                <GetStartedToday
+                    lng={params.lng}
+                    t={
+                        {
+                            GetStartedToday: tGlobal('components.GetStartedToday', {returnObjects: true})
+                        }
                     }
-                }
-            />
+                />
+            </article>
         </PageWrapper>
     )
 }
