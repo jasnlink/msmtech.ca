@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import acceptLanguage from 'accept-language'
 import { fallbackLng, languages, cookieName } from './app/i18n/settings'
 import { redirects } from './src/data'
+import { cookies } from 'next/headers'
+import { validateSession } from './app/actions'
 
 acceptLanguage.languages(languages)
 
@@ -10,7 +12,9 @@ export const config = {
     matcher: ['/((?!api|_next|_next/static|_next/image|assets|favicon.ico|sw.js|.*\.svg).*)']
 }
 
-export function middleware(req: NextRequest) {
+export function middleware(req: NextRequest, res: NextResponse) {
+
+    const response = NextResponse.next()
 
     try {
         if (redirects[req.nextUrl.pathname]) {
@@ -19,8 +23,30 @@ export function middleware(req: NextRequest) {
         }
     } catch (error) {
         console.error('Middleware hard-coded redirect error:', error);
-        return NextResponse.next();
+        return response;
     }
+
+    // //Auth
+    // try {
+    //     const authPathnames = {
+    //         '/en/affiliates': '/en/affiliates',
+    //         '/fr/affiliates': '/fr/affiliates'
+    //     }
+    //     if (authPathnames[req.nextUrl.pathname as keyof {}]) {
+    //         console.log(`middleware`, req.nextUrl.pathname.split('/'))
+
+    //         if (req.cookies.has('session-id')) {
+    //             validateSession()
+    //             .then((sessionValidation) => {
+    //                 console.log(`middleware already has cookies`, sessionValidation)
+    //             })
+    //         }
+    //     }
+
+    // } catch (error) {
+    //     console.error('Middleware test error:', error);
+    //     return response;
+    // }
 
     try {
         let lng
@@ -51,14 +77,13 @@ export function middleware(req: NextRequest) {
         if (req.headers.has('referer')) {
             const refererUrl = new URL(req.headers.get('referer') || ``)
             const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`))
-            const response = NextResponse.next()
             if (lngInReferer) response.cookies.set(cookieName, lngInReferer)
             return response
         }
     
-        return NextResponse.next()
+        return response
     } catch (error) {
         console.error('Middleware localization error:', error);
-        return NextResponse.next();
+        return response
     }
 }

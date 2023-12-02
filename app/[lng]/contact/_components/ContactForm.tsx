@@ -9,16 +9,10 @@ import { Transition } from "@headlessui/react"
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import { FormEvent, Fragment, useState } from "react"
-import { Translation } from "@/src/models"
+import { SelectOption, Translation } from "@/src/models"
 import useT from "@/src/hooks/useT"
 
-export interface BudgetOption {
-    id: number;
-    name: string;
-    unavailable: boolean;
-}
-
-const budgetOptions:Array<BudgetOption> = [
+const budgetOptions:Array<SelectOption> = [
     { id: 1, name: '$0 - $5,000', unavailable: false },
     { id: 2, name: '$5,000 - $10,000', unavailable: false },
     { id: 3, name: '$10,000 - $25,000', unavailable: false },
@@ -42,7 +36,7 @@ export default function ContactForm({ lng, t }: ContactFormProps) {
     const [inputEmail, setInputEmail] = useState('')
     const [inputPhone, setInputPhone] = useState('')
 
-    const [selectedBudget, setSelectedBudget] = useState<BudgetOption>(budgetOptions[0])
+    const [selectedBudget, setSelectedBudget] = useState<SelectOption>(budgetOptions[0])
 
     const formattedTodayDate = useCurrentDate()
     const [selectedDate, setSelectedDate] = useState(formattedTodayDate)

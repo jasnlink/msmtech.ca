@@ -23,16 +23,15 @@ interface SelectProps {
 export default function Select({data, name, labelName, showLabel=true, selected, onChange, required}:SelectProps) {
     return (
         <div>
-            <Input
+            <input
                 type="hidden"
                 name={name}
-                labelName={labelName}
                 value={selected.name}
             />
             {showLabel && (
                 <Text tw={`ms-1 select-none cursor-default ${required ? `after:content-['*'] after:text-red-500` : ``}`}>{labelName}</Text>
             )}
-            <div className="mt-1 relative">
+            <div className="mt-1.5 relative">
                 <Listbox value={selected} onChange={onChange}>
                     <Listbox.Button className="relative text-left cursor-default select-none active:border-white w-full text-lg py-2 px-3 rounded-lg bg-transparent border border-zinc-600/80 shadow-zinc-900/80 backdrop-blur-2xl">
                         <span>{selected.name}</span>

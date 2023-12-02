@@ -90,59 +90,10 @@ input AssetFilter {
 }
 
 type AssetLinkingCollections {
-  authorsCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsAuthorsCollectionOrder], preview: Boolean, skip: Int = 0): AuthorsCollection
-  blogPostsCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsBlogPostsCollectionOrder], preview: Boolean, skip: Int = 0): BlogPostsCollection
-  blogsCollection(limit: Int = 100, locale: String, order: [AssetLinkingCollectionsBlogsCollectionOrder], preview: Boolean, skip: Int = 0): BlogsCollection
+  authorsCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): AuthorsCollection
+  blogPostsCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): BlogPostsCollection
+  blogsCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): BlogsCollection
   entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0): EntryCollection
-}
-
-enum AssetLinkingCollectionsAuthorsCollectionOrder {
-  name_ASC
-  name_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-}
-
-enum AssetLinkingCollectionsBlogPostsCollectionOrder {
-  handle_ASC
-  handle_DESC
-  seoTitle_ASC
-  seoTitle_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-  title_ASC
-  title_DESC
-}
-
-enum AssetLinkingCollectionsBlogsCollectionOrder {
-  handle_ASC
-  handle_DESC
-  order_ASC
-  order_DESC
-  seoTitle_ASC
-  seoTitle_DESC
-  sys_firstPublishedAt_ASC
-  sys_firstPublishedAt_DESC
-  sys_id_ASC
-  sys_id_DESC
-  sys_publishedAt_ASC
-  sys_publishedAt_DESC
-  sys_publishedVersion_ASC
-  sys_publishedVersion_DESC
-  title_ASC
-  title_DESC
 }
 
 enum AssetOrder {
@@ -314,6 +265,8 @@ type BlogPostsContentLinks {
 
 type BlogPostsContentResources {
   block: [ResourceLink!]!
+  hyperlink: [ResourceLink!]!
+  inline: [ResourceLink!]!
 }
 
 input BlogPostsFilter {

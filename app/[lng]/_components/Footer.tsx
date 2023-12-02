@@ -44,6 +44,14 @@ export default function Footer({ lng, t }: FooterProps) {
             url: `/blogs/services`,
             children: []
         },
+        {
+            id: `4`,
+            featuredImage: null,
+            title: useT(t?.footer_navigation.menu[0].affiliates),
+            description: null,
+            url: `/affiliates`,
+            children: []
+        },
     ]
 
     const footerNavigationItems2: Array<NavigationItem> = [

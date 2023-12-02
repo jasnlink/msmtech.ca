@@ -36,3 +36,9 @@ next-env.d.ts
 
 # ssh keys
 .ssh
+
+# sqlite
+/prisma/db.sqlite
+/prisma/db.sqlite-journal
+/prisma/db.sqlite-shm
+/prisma/db.sqlite-wal

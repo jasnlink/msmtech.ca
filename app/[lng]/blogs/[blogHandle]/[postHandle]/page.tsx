@@ -1,4 +1,4 @@
-import { GetAllBlogsQuery, GetBlogPostByHandleQuery, GetPaginatedBlogPostsQuery } from "@/src/_generated/graphql"
+import { BlogPostFieldsFragment, GetAllBlogsQuery, GetBlogPostByHandleQuery, GetPaginatedBlogPostsQuery } from "@/src/_generated/graphql"
 import GetStartedToday from "@/src/components/GetStartedToday"
 import { ArrowLeftIcon } from "@/src/components/Icon"
 import Loader from "@/src/components/Loader"
@@ -6,7 +6,7 @@ import PageWrapper from "@/src/components/PageWrapper"
 import Text from "@/src/components/Text"
 import { getAllBlogs, getBlogPostByHandle, getPaginatedBlogPosts, queryClient } from "@/src/graphql/api"
 import { Options, documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -143,6 +143,8 @@ export default async function Page({
     await queryClient.prefetchQuery<GetBlogPostByHandleQuery>(['blogPost', params.lng, params.blogHandle, params.postHandle], () => getBlogPostByHandle({ locale: params.lng, blogHandle: params.blogHandle, postHandle: params.postHandle }))
     const postData = queryClient.getQueryData<GetBlogPostByHandleQuery>(['blogPost', params.lng, params.blogHandle, params.postHandle])
 
+    console.dir(postData, {depth:null})
+
     if (!postData?.blogPostsCollection?.items.length) {
         notFound()
     }
@@ -156,8 +158,19 @@ export default async function Page({
         };
     } = {}
 
+    let postContentEntryHyperLinks: {
+        [key: string]: {
+            title: string;
+            handle: string;
+        };
+    } = {}
+
     if (post?.content?.links.assets.block.length) {
         postContentAssets = Object.fromEntries(post?.content?.links.assets.block.map((assetBlock) => [assetBlock?.sys.id, { url: assetBlock?.url, title: assetBlock?.title }]))
+    }
+
+    if (post?.content?.links.entries.hyperlink.length) {
+        postContentEntryHyperLinks = Object.fromEntries(post?.content?.links.entries.hyperlink.map((entryHyperlink) => (entryHyperlink && 'handle' in entryHyperlink && 'title' in entryHyperlink) ? [entryHyperlink?.sys.id, { handle: entryHyperlink?.handle, title: entryHyperlink?.title }] : []))
     }
 
     const renderOptions: Options = {
@@ -173,8 +186,9 @@ export default async function Page({
                     </table>
                 </div>
             ),
-            [BLOCKS.TABLE_HEADER_CELL]: (node, children) => <td className={`border border-zinc-700 [&>p]:mb-0 py-2 px-4 font-bold`}>{children}</td>,
-            [BLOCKS.TABLE_CELL]: (node, children) => <td className={`border border-zinc-700 [&>p]:mb-0 py-2 px-4`}>{children}</td>,
+            [BLOCKS.TABLE_ROW]: (node, children) => <tr className={`hover:bg-zinc-800 transition-all`}>{children}</tr>,
+            [BLOCKS.TABLE_HEADER_CELL]: (node, children) => <th className={`border border-zinc-700/80 [&>p]:mb-0 py-2 px-4 font-bold`}>{children}</th>,
+            [BLOCKS.TABLE_CELL]: (node, children) => <td className={`border border-zinc-700/80 [&>p]:mb-0 py-2 px-4`}>{children}</td>,
             [BLOCKS.UL_LIST]: (node, children) => <ul className={`pl-4 list-disc mb-8`}>{children}</ul>,
             [BLOCKS.OL_LIST]: (node, children) => <ol className={`pl-4 list-decimal mb-8`}>{children}</ol>,
             [BLOCKS.LIST_ITEM]: (node, children) => <li className={`[&>p]:mb-2`}>{children}</li>,
@@ -187,6 +201,8 @@ export default async function Page({
                     className={`my-4 w-full h-auto shadow-lg rounded-lg`}
                 />)
             },
+            [INLINES.ENTRY_HYPERLINK]: (node, children) => <a className={`hover:underline hover:decoration-dotted font-semibold underline-offset-4 text-primary-200`} href={`${postContentEntryHyperLinks[node.data.target.sys.id].handle ?? ``}`} title={node.data.value}>{children}</a>,
+            [INLINES.HYPERLINK]: (node, children) => <a className={`hover:underline hover:decoration-dotted font-semibold underline-offset-4 text-primary-200`} title={node.data.value} href={node.data.uri}>{children}</a>,
         },
         renderMark: {
             [MARKS.CODE]: (text) => <code className={`inline-block py-1 px-2 from-zinc-950 to-zinc-900 rounded-lg bg-gradient-to-tr border border-zinc-800 whitespace-pre-line text-base tracking-tight font-extralight`}>{text}</code>,

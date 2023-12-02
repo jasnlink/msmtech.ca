@@ -1,9 +1,9 @@
 import { PropsWithChildren, forwardRef } from "react";
 import { LoadingSpinnerIcon } from "./Icon";
 
-type ButtonVariants = 'default'
+type ButtonVariants = 'default' | 'secondary'
 type ButtonTypes = 'default' | 'submit'
-type ButtonSizes = 'default' | 'large'
+type ButtonSizes = 'default' | 'large' | 'small'
 
 interface ButtonProps {
     variant?: ButtonVariants;
@@ -21,9 +21,11 @@ const Button = forwardRef<HTMLAnchorElement, PropsWithChildren<ButtonProps>>((pr
 
     const { variant=`default`, type=`default`, size=`default`, href, loading=false, disabled=false, fullWidth=false, labelName=``, onClick, children } = props
     const variantMap:Record<ButtonVariants, string> = {
-        default: `flex items-center justify-center bg-gradient-to-r hover:from-primary-400 hover:to-primary-500 from-[#396afc] to-primary font-semibold rounded-lg shadow-sm shadow-primary-600 transition-all disabled:opacity-40 disabled:pointer-events-none disabled:cursor-default`
+        default: `flex items-center justify-center bg-gradient-to-r hover:from-primary-400 hover:to-primary-500 from-[#396afc] to-primary font-semibold rounded-lg shadow-sm shadow-primary-600 transition-all disabled:opacity-40 disabled:pointer-events-none disabled:cursor-default`,
+        secondary: `text-black flex items-center justify-center bg-gradient-to-r hover:from-primary-200 hover:to-primary-300 from-primary-100 to-primary-200 font-semibold rounded-lg shadow-sm shadow-primary-600 transition-all disabled:opacity-40 disabled:pointer-events-none disabled:cursor-default`,
     }
     const sizeMap:Record<ButtonSizes, string> = {
+        small: ` py-2 px-4 text-base`,
         default: ` py-3 px-8 text-lg`,
         large: ` py-3 px-8 lg:py-4 lg:px-12 text-lg lg:text-xl`
     }

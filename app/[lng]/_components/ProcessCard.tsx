@@ -9,7 +9,7 @@ export default function ProcessCard({data}:ProcessCardProps) {
     return (
         <div className="z-10 flex items-center gap-x-8 xl:gap-x-16">
             <div className="flex justify-center xl:justify-start">
-                <div className="bg-primary-50 p-3 md:p-4 rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
+                <div className="bg-gradient-to-r from-primary-50 to-primary-200 p-3 md:p-4 rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
                     {data.icon}
                 </div>
             </div>
