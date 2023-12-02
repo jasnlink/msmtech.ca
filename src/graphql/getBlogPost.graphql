@@ -10,6 +10,16 @@ fragment BlogPostFields on BlogPosts {
     content {
         json
         links {
+            entries {
+                ... on BlogPostsContentEntries {
+                    hyperlink {
+                        sys {
+                            id
+                        }
+                        ... getAllBlogsCollectionLinkedFromFields
+                    }
+                }
+            }
             assets {
                 ... on BlogPostsContentAssets {
                     block {

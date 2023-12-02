@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server'
 import acceptLanguage from 'accept-language'
-import { fallbackLng, languages, cookieName } from './app/i18n/settings'
+import { NextRequest, NextResponse } from 'next/server'
+import { cookieName, fallbackLng, languages } from './app/i18n/settings'
 import { redirects } from './src/data'
 
 acceptLanguage.languages(languages)
@@ -10,7 +10,9 @@ export const config = {
     matcher: ['/((?!api|_next|_next/static|_next/image|assets|favicon.ico|sw.js|.*\.svg).*)']
 }
 
-export function middleware(req: NextRequest) {
+export function middleware(req: NextRequest, res: NextResponse) {
+
+    const response = NextResponse.next()
 
     try {
         if (redirects[req.nextUrl.pathname]) {
@@ -19,7 +21,7 @@ export function middleware(req: NextRequest) {
         }
     } catch (error) {
         console.error('Middleware hard-coded redirect error:', error);
-        return NextResponse.next();
+        return response;
     }
 
     try {
@@ -51,14 +53,13 @@ export function middleware(req: NextRequest) {
         if (req.headers.has('referer')) {
             const refererUrl = new URL(req.headers.get('referer') || ``)
             const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`))
-            const response = NextResponse.next()
             if (lngInReferer) response.cookies.set(cookieName, lngInReferer)
             return response
         }
     
-        return NextResponse.next()
+        return response
     } catch (error) {
         console.error('Middleware localization error:', error);
-        return NextResponse.next();
+        return response
     }
 }
