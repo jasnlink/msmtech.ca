@@ -143,8 +143,6 @@ export default async function Page({
     await queryClient.prefetchQuery<GetBlogPostByHandleQuery>(['blogPost', params.lng, params.blogHandle, params.postHandle], () => getBlogPostByHandle({ locale: params.lng, blogHandle: params.blogHandle, postHandle: params.postHandle }))
     const postData = queryClient.getQueryData<GetBlogPostByHandleQuery>(['blogPost', params.lng, params.blogHandle, params.postHandle])
 
-    console.dir(postData, {depth:null})
-
     if (!postData?.blogPostsCollection?.items.length) {
         notFound()
     }
