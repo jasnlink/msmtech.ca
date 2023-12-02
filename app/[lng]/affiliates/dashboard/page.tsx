@@ -1,14 +1,12 @@
-import { logoutSession, validateSession } from "@/app/actions";
+import { validateSession } from "@/app/actions";
 import prisma from "@/src/actions/database";
 import Button from "@/src/components/Button";
-import { ArrowLeftIcon, LogoutIcon } from "@/src/components/Icon";
+import PageWrapper from "@/src/components/PageWrapper";
 import Text from "@/src/components/Text";
-import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import Logout from "./leads/add/_components/Logout";
-import PageWrapper from "@/src/components/PageWrapper";
 
 export default async function DashboardPage({ params }: {
     params: {

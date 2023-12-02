@@ -26,28 +26,6 @@ export function middleware(req: NextRequest, res: NextResponse) {
         return response;
     }
 
-    // //Auth
-    // try {
-    //     const authPathnames = {
-    //         '/en/affiliates': '/en/affiliates',
-    //         '/fr/affiliates': '/fr/affiliates'
-    //     }
-    //     if (authPathnames[req.nextUrl.pathname as keyof {}]) {
-    //         console.log(`middleware`, req.nextUrl.pathname.split('/'))
-
-    //         if (req.cookies.has('session-id')) {
-    //             validateSession()
-    //             .then((sessionValidation) => {
-    //                 console.log(`middleware already has cookies`, sessionValidation)
-    //             })
-    //         }
-    //     }
-
-    // } catch (error) {
-    //     console.error('Middleware test error:', error);
-    //     return response;
-    // }
-
     try {
         let lng
         //@ts-ignore

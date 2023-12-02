@@ -1,13 +1,12 @@
 'use client'
 
-import { actionAddLead, handleLoginEmail } from "@/app/actions"
+import { actionAddLead } from "@/app/actions"
 import Button from "@/src/components/Button"
 import Input from "@/src/components/Input"
 import Select from "@/src/components/Select"
 import Text from "@/src/components/Text"
 import { SelectOption } from "@/src/models"
 import { useState } from "react"
-import { text } from "stream/consumers"
 
 interface LeadsFormProps {
     lng: string;

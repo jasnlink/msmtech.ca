@@ -1,6 +1,5 @@
 import { validateSession } from "@/app/actions";
 import ContentContainer from "@/src/components/ContentContainer";
-import PageWrapper from "@/src/components/PageWrapper";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 

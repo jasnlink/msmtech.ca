@@ -1,7 +1,6 @@
 'use client'
 import { handleLoginCode, handleLoginEmail, validateSessionRedirect } from "@/app/actions";
 import Button from "@/src/components/Button";
-import { ArrowLeftIcon } from "@/src/components/Icon";
 import Input from "@/src/components/Input";
 import Text from "@/src/components/Text";
 import { Transition } from "@headlessui/react";
