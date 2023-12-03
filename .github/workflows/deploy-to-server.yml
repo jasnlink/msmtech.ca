@@ -65,4 +65,4 @@ jobs:
           --exclude='prisma/db.sqlite-wal' \
           ${local_dir} ${remote_user}@${remote_host}:${remote_dir}
           # Run Prisma migrations
-          ssh ${remote_user}@${remote_host} "cd ${remote_dir} && npx prisma migrate deploy"
+          ssh ${remote_user}@${remote_host} "cd ${remote_dir} && pm2 stop msmtech-ca && npx prisma migrate deploy && pm2 start"
