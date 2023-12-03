@@ -32,13 +32,7 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
-      - name: "Install dependencies"
-        run: npm install
-
-      - name: "Run Prisma Migrations"
-        run: npx prisma migrate deploy
-
-      - name: "Build deploy"
+      - name: "Install dependencies and build"
         working-directory: ./
         env:
           remote_host: ${{ secrets.DEPLOY_HOST }}
@@ -48,8 +42,27 @@ jobs:
           local_dir: "./"
           remote_dir: "/var/www/msmtech-ca"
         run: |
+          npm install
           unset CI
-          echo "${dev_env_file}" > .env.local
+          echo "${{ secrets.DEV_ENV_FILE }}" > .env.local
           chmod 600 .env.local
           npm run build
-          rsync -azvr --delete ${local_dir} ${remote_user}@${remote_host}:${remote_dir}
+
+      - name: "Deploy to Server"
+        working-directory: ./
+        env:
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_port: ${{ secrets.DEPLOY_PORT }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          dev_env_file: ${{ secrets.DEV_ENV_FILE }}
+          local_dir: "./"
+          remote_dir: "/var/www/msmtech-ca"
+        run: |
+          # Exclude the SQLite database and WAL mode files from rsync
+          rsync -azvr --delete \
+          --exclude='prisma/db.sqlite' \
+          --exclude='prisma/db.sqlite-shm' \
+          --exclude='prisma/db.sqlite-wal' \
+          ${local_dir} ${remote_user}@${remote_host}:${remote_dir}
+          # Run Prisma migrations
+          ssh ${remote_user}@${remote_host} "cd ${remote_dir} && npx prisma migrate deploy"
